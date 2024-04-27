@@ -34,14 +34,6 @@ flutter:
     - assets/fonts/
     - assets/icons/
     - assets/images/
-#  fonts:
-#          - family: Nunito
-#            fonts:
-#              - asset: assets/fonts/Nunito-Bold.ttf
-#                weight: 700
-#              - asset: assets/fonts/Nunito-Regular.ttf
-#                weight: 400
-#              - asset: assets/font/Nunito-Medium.ttf
   fonts:
     - family: PT Serif
       fonts:
