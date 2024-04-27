@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
 
 class RenteeElevatedButton extends StatelessWidget {
-  RenteeElevatedButton({required this.buttonText, this.onPress, super.key});
-  final buttonText;
+  const RenteeElevatedButton({required this.text, this.onPress, super.key});
+  final String text;
   final VoidCallback? onPress;
 
   @override
   Widget build(BuildContext context) {
-    return ElevatedButton(onPressed: onPress, child: Text(buttonText));
+    return ElevatedButton(onPressed: onPress, child: Text(text));
   }
 }
