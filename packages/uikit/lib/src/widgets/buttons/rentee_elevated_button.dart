@@ -2,49 +2,56 @@ import 'package:flutter/material.dart';
 import 'package:uikit/src/theme/rentee_button_styles.dart';
 
 class RenteeElevatedButton extends StatelessWidget {
-  bool _isSecondary = false;
-  bool _isGray = false;
-  bool _isTertiary = false;
+  final bool isSecondary;
+  final bool isGray;
+  final bool isTertiary;
   final String text;
   final VoidCallback? onPress;
   final IconData? icon;
 
-  RenteeElevatedButton(
-      {required this.text, this.icon, this.onPress, super.key});
+  const RenteeElevatedButton(
+      {required this.text, this.icon, this.onPress, super.key})
+      : isGray = false,
+        isSecondary = false,
+        isTertiary = false;
 
-  RenteeElevatedButton.secondary({
+  const RenteeElevatedButton.secondary({
     required this.text,
     this.onPress,
     this.icon,
     super.key,
-  }) {
-    _isSecondary = true;
-  }
+  })  : isSecondary = true,
+        isGray = false,
+        isTertiary = false;
+
   RenteeElevatedButton.gray(
-      {required this.text, this.icon, this.onPress, super.key}) {
-    _isGray = true;
-  }
-  RenteeElevatedButton.tertiary(
-      {required this.text, this.icon, this.onPress, super.key}) {
-    _isTertiary = true;
-  }
+      {required this.text, this.icon, this.onPress, super.key})
+      : isSecondary = false,
+        isTertiary = false,
+        isGray = true;
+  const RenteeElevatedButton.tertiary(
+      {required this.text, this.icon, this.onPress, super.key})
+      : isSecondary = false,
+        isGray = false,
+        isTertiary = true;
+
   @override
   Widget build(BuildContext context) {
-    if (_isSecondary) {
+    if (isSecondary) {
       return ElevatedButton(
         onPressed: onPress,
         style: secondaryButton,
         child: Text(text),
       );
     }
-    if (_isGray) {
+    if (isGray) {
       return ElevatedButton(
         onPressed: onPress,
         style: grayButton,
         child: Text(text),
       );
     }
-    if (_isTertiary) {
+    if (isTertiary) {
       return ElevatedButton(
         onPressed: onPress,
         style: tertiaryButton,

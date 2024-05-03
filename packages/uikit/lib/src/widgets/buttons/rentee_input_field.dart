@@ -16,8 +16,15 @@ class RenteeInputField extends StatefulWidget {
       this.icon,
       this.placeholder = 'Your placeholder',
       this.suffixOnPressed,
-      this.isSecure = false,
-      super.key});
+      super.key})
+      : isSecure = false;
+  const RenteeInputField.password(
+      {this.label,
+      this.icon,
+      this.placeholder = 'Your placeholder',
+      this.suffixOnPressed,
+      super.key})
+      : isSecure = true;
 
   @override
   State<RenteeInputField> createState() => _RenteeInputFieldState();

@@ -18,9 +18,8 @@ class InputTextExample extends StatelessWidget {
               label: 'Title here',
               icon: RenteeAssets.icons.search.svg(),
             ),
-            RenteeInputField(
+            const RenteeInputField.password(
               label: 'Title here',
-              isSecure: true,
             ),
           ],
         ),
