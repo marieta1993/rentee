@@ -24,7 +24,7 @@ class RenteeElevatedButton extends StatelessWidget {
         isGray = false,
         isTertiary = false;
 
-  RenteeElevatedButton.gray(
+  const RenteeElevatedButton.gray(
       {required this.text, this.icon, this.onPress, super.key})
       : isSecondary = false,
         isTertiary = false,
