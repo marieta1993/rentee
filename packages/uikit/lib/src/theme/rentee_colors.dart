@@ -6,6 +6,8 @@ abstract class RenteeColors {
   static const primary = Color(0xFF3845AB);
   static const secondary = Color(0xFFEEA86C);
   static const tertiary = Color(0xFFE7F1FF);
+  static const gray = Color(0xFFF9F9FB);
+  static const buttonTextColor = Color(0xFF78789D);
 
   static const accent1 = Color(0xFF332C5A);
   static const accent2 = Color(0xFF82A4D0);

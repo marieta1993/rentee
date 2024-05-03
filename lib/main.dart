@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:rentee/presentation/screens/example/example.dart';
 import 'package:uikit/uikit.dart';
+import 'package:flutter_localizations/flutter_localizations.dart';
 
+// import 'package:intl/intl.dart';
 void main() {
   runApp(const MyApp());
 }
@@ -13,6 +15,15 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      localizationsDelegates: [
+        GlobalMaterialLocalizations.delegate,
+        GlobalWidgetsLocalizations.delegate,
+        GlobalCupertinoLocalizations.delegate,
+      ],
+      supportedLocales: [
+        Locale('en'), // English
+        Locale('hy'), // Armenian
+      ],
       title: 'Rentee',
       theme: lightTheme,
       home: const MyHomePage(title: 'Rentee'),
