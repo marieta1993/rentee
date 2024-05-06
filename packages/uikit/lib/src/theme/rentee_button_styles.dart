@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:uikit/src/theme/rentee_dimensions.dart';
-import 'package:uikit/src/widgets/buttons/rentee_elevated_button.dart';
 
 import 'rentee_colors.dart';
 import 'rentee_text_styles.dart';
@@ -20,17 +19,32 @@ ElevatedButtonThemeData get elevatedButtonThemeData => ElevatedButtonThemeData(
       ),
     );
 
-ButtonStyle get secondaryButton => ButtonStyle(
-    backgroundColor: MaterialStateProperty.all(RenteeColors.secondary));
-ButtonStyle get grayButton => ButtonStyle(
-    backgroundColor: MaterialStateProperty.all(RenteeColors.gray),
-    foregroundColor: MaterialStateProperty.all((RenteeColors.buttonTextColor)));
-ButtonStyle get tertiaryButton => ButtonStyle(
-    backgroundColor: MaterialStateProperty.all(RenteeColors.tertiary),
-    foregroundColor: MaterialStateProperty.all((RenteeColors.primary)));
-ButtonStyle get iconButton => ButtonStyle(
-    side: MaterialStateProperty.all(
-        const BorderSide(color: RenteeColors.primary)),
-    backgroundColor: MaterialStateProperty.all(RenteeColors.white),
-    foregroundColor: MaterialStateProperty.all((RenteeColors.primary)),
-    overlayColor: MaterialStateProperty.all((RenteeColors.primary)));
+ButtonStyle get secondaryButton =>
+    ElevatedButton.styleFrom(backgroundColor: RenteeColors.secondary);
+
+ButtonStyle get grayButton => ElevatedButton.styleFrom(
+      backgroundColor: RenteeColors.gray,
+      foregroundColor: RenteeColors.buttonTextColor,
+    );
+
+ButtonStyle get tertiaryButton => ElevatedButton.styleFrom(
+      backgroundColor: RenteeColors.tertiary,
+      foregroundColor: RenteeColors.primary,
+    );
+
+IconButtonThemeData get iconButtonThemeData => IconButtonThemeData(
+      style: ButtonStyle(
+        side: MaterialStateProperty.all(
+          const BorderSide(color: RenteeColors.primary),
+        ),
+        backgroundColor: MaterialStateProperty.all(RenteeColors.white),
+        shape: MaterialStateProperty.all(roundedBorder14),
+        foregroundColor: MaterialStateProperty.all(RenteeColors.primary),
+      ),
+    );
+
+ButtonStyle iconFilledButton = IconButton.styleFrom(
+  backgroundColor: RenteeColors.secondary,
+  foregroundColor: RenteeColors.white,
+  side: BorderSide.none,
+);

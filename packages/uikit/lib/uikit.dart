@@ -1,6 +1,7 @@
 library uikit;
 
 export 'src/widgets/buttons/rentee_elevated_button.dart';
+export 'src/widgets/buttons/rentee_icon_button.dart';
 export 'src/widgets/buttons/rentee_dropdown_button.dart';
 export 'src/widgets/form_fields/rentee_input_field.dart';
 export 'src/widgets/buttons/rentee_radio_button.dart';

@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:uikit/src/theme/rentee_colors.dart';
-import 'package:uikit/src/theme/rentee_dimensions.dart';
-import 'package:uikit/src/theme/rentee_text_styles.dart';
+import 'package:uikit/src/theme/rentee_border_styles.dart';
 import 'package:uikit/uikit.dart';
 
 class RenteeInputField extends StatefulWidget {
@@ -11,20 +9,21 @@ class RenteeInputField extends StatefulWidget {
   final bool isSecure;
   final VoidCallback? suffixOnPressed;
 
-  const RenteeInputField(
-      {this.label,
-      this.icon,
-      this.placeholder = 'Your placeholder',
-      this.suffixOnPressed,
-      super.key})
-      : isSecure = false;
-  const RenteeInputField.password(
-      {this.label,
-      this.icon,
-      this.placeholder = 'Your placeholder',
-      this.suffixOnPressed,
-      super.key})
-      : isSecure = true;
+  const RenteeInputField({
+    this.label,
+    this.icon,
+    this.placeholder = 'Your placeholder',
+    this.suffixOnPressed,
+    super.key,
+  }) : isSecure = false;
+
+  const RenteeInputField.password({
+    this.label,
+    this.icon,
+    this.placeholder = 'Your placeholder',
+    this.suffixOnPressed,
+    super.key,
+  }) : isSecure = true;
 
   @override
   State<RenteeInputField> createState() => _RenteeInputFieldState();
@@ -69,10 +68,7 @@ class _RenteeInputFieldState extends State<RenteeInputField> {
             alignLabelWithHint: false,
             // fillColor: Colors.amber,
             fillColor: RenteeColors.additional6,
-            border: OutlineInputBorder(
-              borderSide: BorderSide.none,
-              borderRadius: circularRadius15,
-            ),
+            border: inputBorderRoundedNone,
             contentPadding: paddingH20,
             labelStyle: notoH5.copyWith(color: RenteeColors.additional2),
             hintText: widget.placeholder,

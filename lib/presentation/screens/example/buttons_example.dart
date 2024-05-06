@@ -29,8 +29,13 @@ class ButtonsExample extends StatelessWidget {
             RenteeElevatedButton.tertiary(
                 text: 'Tertiary Button', onPress: () {}),
             18.heightBox,
-            RenteeElevatedButton(
-                text: '', onPress: () {}, icon: Icons.arrow_back),
+            RenteeIconButton(
+                onPress: () {}, icon: const Icon(Icons.arrow_forward)),
+            18.heightBox,
+            RenteeIconButton.filled(
+              onPress: () {},
+              icon: const Icon(Icons.arrow_circle_right_outlined),
+            ),
           ],
         ),
       ),

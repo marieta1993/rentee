@@ -3,7 +3,6 @@ import 'package:rentee/presentation/screens/example/example.dart';
 import 'package:uikit/uikit.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 
-// import 'package:intl/intl.dart';
 void main() {
   runApp(const MyApp());
 }
@@ -15,12 +14,13 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      localizationsDelegates: [
+      debugShowCheckedModeBanner: false,
+      localizationsDelegates: const [
         GlobalMaterialLocalizations.delegate,
         GlobalWidgetsLocalizations.delegate,
         GlobalCupertinoLocalizations.delegate,
       ],
-      supportedLocales: [
+      supportedLocales: const [
         Locale('en'), // English
         Locale('hy'), // Armenian
       ],

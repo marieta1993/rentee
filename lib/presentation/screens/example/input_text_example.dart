@@ -2,17 +2,32 @@ import 'package:flutter/material.dart';
 import 'package:uikit/uikit.dart';
 
 List<DropdownMenuItem<String>> get dropdownItems {
-  List<DropdownMenuItem<String>> menuItems = [
-    DropdownMenuItem(child: Text("USA"), value: "USA"),
-    DropdownMenuItem(child: Text("Canada"), value: "Canada"),
-    DropdownMenuItem(child: Text("Brazil"), value: "Brazil"),
-    DropdownMenuItem(child: Text("England"), value: "England"),
+  List<DropdownMenuItem<String>> menuItems = const [
+    DropdownMenuItem(value: "USA", child: Text("USA")),
+    DropdownMenuItem(value: "Canada", child: Text("Canada")),
+    DropdownMenuItem(value: "Brazil", child: Text("Brazil")),
+    DropdownMenuItem(value: "England", child: Text("England")),
   ];
   return menuItems;
 }
 
-class InputTextExample extends StatelessWidget {
+class InputTextExample extends StatefulWidget {
   const InputTextExample({super.key});
+
+  @override
+  State<InputTextExample> createState() => _InputTextExampleState();
+}
+
+class _InputTextExampleState extends State<InputTextExample> {
+  int selectedValue = 0;
+  String? selectedItem;
+  onChanged() {
+    (String? newValue) {
+      setState(() {
+        selectedItem = newValue!;
+      });
+    };
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -31,10 +46,30 @@ class InputTextExample extends StatelessWidget {
             const RenteeInputField.password(
               label: 'Title here',
             ),
-            RenteeDropdownButton(label: 'Dropdown', options: dropdownItems),
-            const RenteeRadioButton(
-              label: 'Label',
+            RenteeDropdownButton(
+              label: 'Dropdown',
+              options: dropdownItems,
+              onChanged: onChanged,
+            ),
+            RenteeRadioButton(
+              value: 0,
               option: 'Option 1',
+              selectedValue: selectedValue,
+              onChanged: (value) {
+                setState(() {
+                  selectedValue = value;
+                });
+              },
+            ),
+            RenteeRadioButton(
+              value: 1,
+              option: 'Option 2',
+              selectedValue: selectedValue,
+              onChanged: (value) {
+                setState(() {
+                  selectedValue = value;
+                });
+              },
             )
           ],
         ),

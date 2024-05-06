@@ -1,70 +1,60 @@
 import 'package:flutter/material.dart';
 import 'package:uikit/src/theme/rentee_button_styles.dart';
 
+enum RenteeElevatedButtonType {
+  primary,
+  secondary,
+  gray,
+  tertiary;
+
+  ButtonStyle? get style {
+    switch (this) {
+      case RenteeElevatedButtonType.secondary:
+        return secondaryButton;
+      case RenteeElevatedButtonType.gray:
+        return grayButton;
+      case RenteeElevatedButtonType.tertiary:
+        return tertiaryButton;
+      default:
+        return null;
+    }
+  }
+}
+
 class RenteeElevatedButton extends StatelessWidget {
-  final bool isSecondary;
-  final bool isGray;
-  final bool isTertiary;
+  final RenteeElevatedButtonType type;
   final String text;
   final VoidCallback? onPress;
   final IconData? icon;
 
   const RenteeElevatedButton(
-      {required this.text, this.icon, this.onPress, super.key})
-      : isGray = false,
-        isSecondary = false,
-        isTertiary = false;
+      {required this.text,
+      this.icon,
+      this.onPress,
+      super.key,
+      this.type = RenteeElevatedButtonType.primary});
 
   const RenteeElevatedButton.secondary({
     required this.text,
     this.onPress,
     this.icon,
     super.key,
-  })  : isSecondary = true,
-        isGray = false,
-        isTertiary = false;
+  }) : type = RenteeElevatedButtonType.secondary;
 
   const RenteeElevatedButton.gray(
       {required this.text, this.icon, this.onPress, super.key})
-      : isSecondary = false,
-        isTertiary = false,
-        isGray = true;
+      : type = RenteeElevatedButtonType.gray;
+
   const RenteeElevatedButton.tertiary(
       {required this.text, this.icon, this.onPress, super.key})
-      : isSecondary = false,
-        isGray = false,
-        isTertiary = true;
+      : type = RenteeElevatedButtonType.tertiary;
 
   @override
   Widget build(BuildContext context) {
-    if (isSecondary) {
-      return ElevatedButton(
-        onPressed: onPress,
-        style: secondaryButton,
-        child: Text(text),
-      );
-    }
-    if (isGray) {
-      return ElevatedButton(
-        onPressed: onPress,
-        style: grayButton,
-        child: Text(text),
-      );
-    }
-    if (isTertiary) {
-      return ElevatedButton(
-        onPressed: onPress,
-        style: tertiaryButton,
-        child: Text(text),
-      );
-    }
-    if (icon != null) {
-      return IconButton.outlined(
-        onPressed: onPress,
-        icon: Icon(icon),
-        style: iconButton,
-      );
-    }
-    return ElevatedButton(onPressed: onPress, child: Text(text));
+    return ElevatedButton(
+      onPressed: onPress,
+      style: type.style,
+      child: Text(text),
+    );
   }
 }

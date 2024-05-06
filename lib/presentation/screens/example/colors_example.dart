@@ -1,7 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:uikit/uikit.dart';
-import 'package:uikit/src/theme/rentee_colors.dart';
 
 class ColorsExample extends StatelessWidget {
   const ColorsExample({super.key});
