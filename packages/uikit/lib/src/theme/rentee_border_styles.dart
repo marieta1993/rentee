@@ -10,3 +10,4 @@ InputBorder inputBorderRoundedNone = OutlineInputBorder(
 
 BorderRadius borderRounded8 = BorderRadius.circular(8);
 BorderRadius borderRounded4 = BorderRadius.circular(4);
+BorderRadius borderRounded5 = BorderRadius.circular(5);

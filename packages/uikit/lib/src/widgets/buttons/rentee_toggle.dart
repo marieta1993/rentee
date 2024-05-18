@@ -5,8 +5,8 @@ import 'package:uikit/src/theme/rentee_colors.dart';
 import 'package:uikit/uikit.dart';
 
 class RenteeToggle extends StatefulWidget {
-  final bool value;
-  final VoidCallback? onChanged;
+ final bool value;
+ final VoidCallback? onChanged;
 
   const RenteeToggle({super.key, required this.value, this.onChanged});
 
@@ -38,7 +38,7 @@ class _RenteeToggleState extends State<RenteeToggle> {
                     child: Padding(
                       padding: paddingAll4,
                       child: ClipRRect(
-                        borderRadius: borderRounded4,
+                        borderRadius: borderRounded8,
                         child: Container(
                           width: 16.0,
                           height: 16.0,
