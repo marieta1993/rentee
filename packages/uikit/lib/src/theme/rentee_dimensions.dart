@@ -18,6 +18,10 @@ EdgeInsetsDirectional get paddingOnlyEnd8 => const EdgeInsetsDirectional.only(
       end: 8.0,
     );
 
+EdgeInsets get paddingAll4 =>  const EdgeInsets.all(
+      4
+    );
+
 RoundedRectangleBorder get roundedBorder14 => const RoundedRectangleBorder(
       borderRadius: BorderRadius.all(Radius.circular(14)),
     );

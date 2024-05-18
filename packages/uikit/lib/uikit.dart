@@ -5,6 +5,7 @@ export 'src/widgets/buttons/rentee_icon_button.dart';
 export 'src/widgets/buttons/rentee_dropdown_button.dart';
 export 'src/widgets/form_fields/rentee_input_field.dart';
 export 'src/widgets/buttons/rentee_radio_button.dart';
+export 'src/widgets/buttons/rentee_toggle.dart';
 
 export 'src/widgets/bottom_bar/bottom_navigation_bar.dart';
 export 'src/widgets/app_bar/app_bar.dart';

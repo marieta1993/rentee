@@ -7,3 +7,6 @@ InputBorder inputBorderRoundedNone = OutlineInputBorder(
   borderSide: BorderSide.none,
   borderRadius: circularRadius15,
 );
+
+BorderRadius borderRounded8 = BorderRadius.circular(8);
+BorderRadius borderRounded4 = BorderRadius.circular(4);
