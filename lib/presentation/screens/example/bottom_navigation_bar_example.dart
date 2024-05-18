@@ -60,6 +60,7 @@ class _BottomNavigationBarExampleAppState
       body: Center(
         child: _widgetOptions.elementAt(_selectedIndex),
       ),
+
       bottomNavigationBar: RenteeBottomNavigationBar(
         items: _tabItems,
         selectedIndex: _selectedIndex,
