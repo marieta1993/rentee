@@ -20,6 +20,7 @@ class InputTextExample extends StatefulWidget {
 
 class _InputTextExampleState extends State<InputTextExample> {
   int selectedValue = 0;
+  bool val = false;
   String? selectedItem;
   onChanged() {
     (String? newValue) {
@@ -31,47 +32,57 @@ class _InputTextExampleState extends State<InputTextExample> {
 
   @override
   Widget build(BuildContext context) {
-    return SafeArea(
-      child: Padding(
-        padding: const EdgeInsets.symmetric(vertical: 20.0, horizontal: 10),
-        child: Column(
-          children: [
-            const RenteeInputField(
-              label: 'Title here',
-            ),
-            RenteeInputField(
-              label: 'Title here',
-              icon: RenteeAssets.icons.search.svg(),
-            ),
-            const RenteeInputField.password(
-              label: 'Title here',
-            ),
-            RenteeDropdownButton(
-              label: 'Dropdown',
-              options: dropdownItems,
-              onChanged: onChanged,
-            ),
-            RenteeRadioButton(
-              value: 0,
-              option: 'Option 1',
-              selectedValue: selectedValue,
-              onChanged: (value) {
-                setState(() {
-                  selectedValue = value;
-                });
-              },
-            ),
-            RenteeRadioButton(
-              value: 1,
-              option: 'Option 2',
-              selectedValue: selectedValue,
-              onChanged: (value) {
-                setState(() {
-                  selectedValue = value;
-                });
-              },
-            )
-          ],
+    return SingleChildScrollView(
+      child: SafeArea(
+        child: Padding(
+          padding: const EdgeInsets.symmetric(vertical: 20.0, horizontal: 10),
+          child: Column(
+            children: [
+              const RenteeInputField(
+                label: 'Title here',
+              ),
+              RenteeInputField(
+                label: 'Title here',
+                icon: RenteeAssets.icons.search.svg(),
+              ),
+              const RenteeInputField.password(
+                label: 'Title here',
+              ),
+              RenteeDropdownButton(
+                label: 'Dropdown',
+                options: dropdownItems,
+                onChanged: onChanged,
+              ),
+              RenteeRadioButton(
+                value: 0,
+                option: 'Option 1',
+                selectedValue: selectedValue,
+                onChanged: (value) {
+                  setState(() {
+                    selectedValue = value;
+                  });
+                },
+              ),
+              RenteeRadioButton(
+                value: 1,
+                option: 'Option 2',
+                selectedValue: selectedValue,
+                onChanged: (value) {
+                  setState(() {
+                    selectedValue = value;
+                  });
+                },
+              ),
+              RenteeToggle(
+                value: val,
+                onChanged: () {
+                  setState(() {
+                    val = !val;
+                  });
+                },
+              ),
+            ],
+          ),
         ),
       ),
     );
