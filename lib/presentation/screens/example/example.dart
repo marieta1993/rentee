@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:rentee/presentation/screens/example/bottom_navigation_bar_example.dart';
 import 'package:rentee/presentation/screens/example/buttons_example.dart';
 import 'package:rentee/presentation/screens/example/colors_example.dart';
 import 'package:rentee/presentation/screens/example/headers_example.dart';
@@ -10,7 +11,7 @@ class ExampleScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return DefaultTabController(
-      length: 4,
+      length: 5,
       child: Scaffold(
         appBar: AppBar(
           bottom: const TabBar(
@@ -18,7 +19,8 @@ class ExampleScreen extends StatelessWidget {
               Tab(text: "Headers"),
               Tab(text: "Buttons"),
               Tab(text: "Colors"),
-              Tab(text: "Input Text"),
+              Tab(text: "Form fields"),
+              Tab(text: "Bottom Bar"),
             ],
           ),
           title: const Text('Styleguide - UI Components'),
@@ -28,7 +30,8 @@ class ExampleScreen extends StatelessWidget {
             HeadersExample(),
             ButtonsExample(),
             ColorsExample(),
-            InputTextExample()
+            InputTextExample(),
+            BottomNavigationBarExampleApp()
           ],
         ),
       ),
