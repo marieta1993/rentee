@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:uikit/src/theme/rentee_border_styles.dart';
 import 'package:uikit/uikit.dart';
 
 class RenteeInputField extends StatefulWidget {
@@ -8,6 +7,8 @@ class RenteeInputField extends StatefulWidget {
   final Widget? icon;
   final bool isSecure;
   final VoidCallback? suffixOnPressed;
+  final TextEditingController? controller;
+  final dynamic validator;
 
   const RenteeInputField({
     this.label,
@@ -15,14 +16,18 @@ class RenteeInputField extends StatefulWidget {
     this.placeholder = 'Your placeholder',
     this.suffixOnPressed,
     super.key,
+    this.controller,
+    this.validator,
   }) : isSecure = false;
 
   const RenteeInputField.password({
     this.label,
     this.icon,
-    this.placeholder = 'Your placeholder',
+    this.placeholder = 'Password',
     this.suffixOnPressed,
     super.key,
+    this.controller,
+    this.validator,
   }) : isSecure = true;
 
   @override
@@ -30,7 +35,7 @@ class RenteeInputField extends StatefulWidget {
 }
 
 class _RenteeInputFieldState extends State<RenteeInputField> {
-  bool passwordVisible = false;
+  bool passwordVisible = true;
 
   @override
   Widget build(BuildContext context) {
@@ -38,7 +43,7 @@ class _RenteeInputFieldState extends State<RenteeInputField> {
       onTap: passwordOnPress,
       child: Padding(
         padding: paddingOnlyEnd8,
-        child: passwordVisible
+        child: !passwordVisible
             ? RenteeAssets.icons.hide.svg()
             : RenteeAssets.icons.show.svg(),
       ),
@@ -59,7 +64,9 @@ class _RenteeInputFieldState extends State<RenteeInputField> {
           style: notoH5.copyWith(color: RenteeColors.additional2),
         ),
         15.heightBox,
-        TextField(
+        TextFormField(
+          validator: widget.validator,
+          controller: widget.controller,
           obscureText: passwordVisible,
           obscuringCharacter: '*',
           decoration: InputDecoration(

@@ -2,5 +2,6 @@
   "helloWorld": "Բարև աշխարհ!",
   "@helloWorld": {
     "description": "Պայմանական ողջույն։"
-  }
+  },
+  "rentee": "RENTEE"
 }

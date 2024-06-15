@@ -56,6 +56,9 @@ class _InputTextExampleState extends State<InputTextExample> {
                   options: dropdownItems,
                   onChanged: onChanged,
                 ),
+                RenteePinPut(
+                  label: "Your code here",
+                ),
                 RenteeRadioButton(
                   value: 0,
                   option: 'Option 1',
@@ -76,11 +79,13 @@ class _InputTextExampleState extends State<InputTextExample> {
                     });
                   },
                 ),
-                Switch.adaptive(value: val, onChanged: (a){
-                  setState(() {
-                    val = a;
-                  });
-                }),
+                Switch.adaptive(
+                    value: val,
+                    onChanged: (a) {
+                      setState(() {
+                        val = a;
+                      });
+                    }),
                 RenteeToggle(
                   value: val,
                   onChanged: () {

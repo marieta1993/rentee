@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "488522363071",
+    "project_id": "rentee-48be4",
+    "storage_bucket": "rentee-48be4.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:488522363071:android:37ef2b847a735f6e07960a",
+        "android_client_info": {
+          "package_name": "com.marieta.com.rentee"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBAv8U14YASy9q0L3XR9URYHQnqzHTK_1Y"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

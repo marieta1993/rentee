@@ -1,8 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:rentee/presentation/screens/example/example.dart';
+import 'package:localization/localization.dart';
+import 'package:provider/provider.dart';
+import 'package:rentee/presentation/screens/auth/auth_provider.dart';
+import 'package:rentee/rentee_main.dart';
 import 'package:uikit/uikit.dart';
-import 'package:flutter_localizations/flutter_localizations.dart';
 
+GlobalKey<NavigatorState> navigationStateKey = GlobalKey<NavigatorState>();
 void main() {
   runApp(const MyApp());
 }
@@ -13,41 +16,18 @@ class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      debugShowCheckedModeBanner: false,
-      localizationsDelegates: const [
-        GlobalMaterialLocalizations.delegate,
-        GlobalWidgetsLocalizations.delegate,
-        GlobalCupertinoLocalizations.delegate,
-      ],
-      supportedLocales: const [
-        Locale('en'), // English
-        Locale('hy'), // Armenian
-      ],
-      title: 'Rentee',
-      theme: lightTheme,
-      home: const MyHomePage(title: 'Rentee'),
-    );
-  }
-}
-
-class MyHomePage extends StatefulWidget {
-  const MyHomePage({super.key, required this.title});
-  final String title;
-
-  @override
-  State<MyHomePage> createState() => _MyHomePageState();
-}
-
-class _MyHomePageState extends State<MyHomePage> {
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        backgroundColor: Theme.of(context).colorScheme.inversePrimary,
-        title: Text(widget.title),
-      ),
-      body: const ExampleScreen(),
-    );
+    return MultiProvider(
+        providers: [
+          ChangeNotifierProvider(create: (_) => AuthProvider()),
+        ],
+        child: MaterialApp(
+            navigatorKey: navigationStateKey,
+            debugShowCheckedModeBanner: false,
+            localizationsDelegates: AppLocalizations.localizationsDelegates,
+            supportedLocales: AppLocalizations.supportedLocales,
+            title: 'Rentee',
+            theme: lightTheme,
+            locale: AppLocalizations.supportedLocales.first,
+            home: const RenteeMain(title: 'Rentee')));
   }
 }

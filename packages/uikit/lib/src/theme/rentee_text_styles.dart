@@ -10,8 +10,38 @@ TextStyle get elevatedButtonTextStyles => const TextStyle(
       fontWeight: FontWeight.bold,
       package: packageName,
     );
-//Noto headings
 
+//Splash screen text style
+
+TextStyle get splashH20 => const TextStyle(
+    fontFamily: FontFamily.notoSans,
+    fontSize: 20.0,
+    height: 24.0 / 20.0,
+    color: RenteeColors.white,
+    letterSpacing: 3.0,
+    fontWeight: FontWeight.w600);
+
+TextStyle get splashH => const TextStyle(
+    fontFamily: FontFamily.notoSans,
+    fontSize: 36.0,
+    height: 32.0 / 36.0,
+    color: RenteeColors.white,
+    letterSpacing: 3.0,
+    fontWeight: FontWeight.w600);
+
+//Onboarding screen elements style
+
+TextStyle get onboardingH => ptSerifH1.copyWith(color: RenteeColors.primary);
+
+//Login screen elements style
+TextStyle get authH => const TextStyle(
+    fontFamily: FontFamily.notoSans,
+    fontSize: 36.0,
+    height: 32.0 / 36.0,
+    color: RenteeColors.white,
+    letterSpacing: 3.0,
+    fontWeight: FontWeight.w600);
+//Noto headings
 TextStyle get notoH1 => const TextStyle(
       fontFamily: FontFamily.notoSans,
       fontSize: 22.0,
