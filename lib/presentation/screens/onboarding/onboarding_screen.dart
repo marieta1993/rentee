@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:rentee/presentation/screens/auth/sign_in/signIn_Screen.dart';
 import 'package:rentee/presentation/screens/auth/sign_up/signUp_screen.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 import 'package:uikit/uikit.dart';
 import 'package:rentee/data/models/onboarding_model.dart';
 
@@ -162,14 +163,18 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
     });
   }
 
-  void onSignInPress() {
+  Future<void> onSignInPress() async {
+    final prefs = await SharedPreferences.getInstance();
+    prefs.setBool('firstLaunch', false);
     Navigator.pushReplacement(
       context,
       MaterialPageRoute(builder: (_) => const SignInScreen()),
     );
   }
 
-  void onSignUpPress() {
+  Future<void> onSignUpPress() async {
+    final prefs = await SharedPreferences.getInstance();
+    prefs.setBool('firstLaunch', false);
     Navigator.pushReplacement(
       context,
       MaterialPageRoute(builder: (_) => const SignUpScreen()),

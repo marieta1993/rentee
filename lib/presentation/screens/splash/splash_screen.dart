@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
+import 'package:rentee/presentation/screens/auth/sign_in/signIn_Screen.dart';
 import 'package:rentee/presentation/screens/onboarding/onboarding_screen.dart';
 import 'package:rentee/utils/extensions/context_localization.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 import 'package:uikit/uikit.dart';
 
 class SplashScreen extends StatefulWidget {
@@ -12,15 +14,27 @@ class SplashScreen extends StatefulWidget {
 }
 
 class _SplashScreenState extends State<SplashScreen> {
+  late bool _firstLaunch;
+
   @override
   void initState() {
     super.initState();
+    _loadPreferences();
+
     Future.delayed(const Duration(seconds: 2), () {
       Navigator.pushReplacement(
           context,
           MaterialPageRoute(
-            builder: (_) => const OnboardingScreen(),
+            builder: (_) =>
+                _firstLaunch ? const OnboardingScreen() : const SignInScreen(),
           ));
+    });
+  }
+
+  void _loadPreferences() async {
+    final prefs = await SharedPreferences.getInstance();
+    setState(() {
+      _firstLaunch = prefs.getBool('firstLaunch') ?? true;
     });
   }
 

@@ -1,12 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:localization/localization.dart';
 import 'package:provider/provider.dart';
+import 'package:rentee/config/shared/preferences.dart';
 import 'package:rentee/presentation/screens/auth/auth_provider.dart';
 import 'package:rentee/rentee_main.dart';
 import 'package:uikit/uikit.dart';
 
 GlobalKey<NavigatorState> navigationStateKey = GlobalKey<NavigatorState>();
-void main() {
+Future<void> main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await Preferences.sharedPreferences();
   runApp(const MyApp());
 }
 

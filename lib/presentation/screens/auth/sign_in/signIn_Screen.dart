@@ -5,8 +5,9 @@ import 'package:rentee/presentation/screens/auth/auth_layout.dart';
 import 'package:rentee/presentation/screens/auth/auth_provider.dart';
 import 'package:rentee/presentation/screens/auth/reset/reset_screen.dart';
 import 'package:rentee/presentation/screens/auth/sign_up/signUp_screen.dart';
-import 'package:rentee/presentation/screens/auth/verification/verification_screen.dart';
 import 'package:rentee/utils/extensions/context_localization.dart';
+import 'package:rentee/utils/validators/password_validator.dart';
+import 'package:rentee/utils/validators/phoneNumber_validator.dart';
 import 'package:uikit/uikit.dart';
 
 class SignInScreen extends StatelessWidget {
@@ -17,17 +18,19 @@ class SignInScreen extends StatelessWidget {
     AuthLayoutData signInData = AuthLayoutData(
       mainContent: Consumer<AuthProvider>(builder: (context, provider, _) {
         return Form(
-          key: provider.formKey,
+          key: provider.formSignInKey,
           child: Column(
             children: [
               RenteeInputField(
                 controller: provider.phoneNumberController,
+                validator: phoneNumberValidator,
                 placeholder: "Your phone number here",
                 label: "Phone number",
               ),
               20.heightBox,
               RenteeInputField.password(
                 controller: provider.passwordController,
+                validator: passwordValidator,
                 label: "Password",
               ),
               20.heightBox,
@@ -50,14 +53,7 @@ class SignInScreen extends StatelessWidget {
               20.heightBox,
               RenteeElevatedButton(
                 text: "Sign in",
-                onPress: () {
-                  Navigator.pushReplacement(
-                    context,
-                    MaterialPageRoute(
-                      builder: (_) => const VerificationScreen(),
-                    ),
-                  );
-                },
+                onPress: provider.signInAction,
               ),
               15.heightBox,
               RichText(

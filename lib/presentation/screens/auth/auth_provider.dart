@@ -16,8 +16,11 @@ class AuthProvider extends ChangeNotifier {
 
   TextEditingController get phoneNumberController => _phoneNumberController;
 
-  final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
-  GlobalKey<FormState> get formKey => _formKey;
+  final GlobalKey<FormState> _formSignUpKey = GlobalKey<FormState>();
+  GlobalKey<FormState> get formSignUpKey => _formSignUpKey;
+
+  final GlobalKey<FormState> _formSignInKey = GlobalKey<FormState>();
+  GlobalKey<FormState> get formSignInKey => _formSignInKey;
 
   void reset() {
     _phoneNumberController.clear();
@@ -31,5 +34,34 @@ class AuthProvider extends ChangeNotifier {
     debugPrint(_phoneNumberController.text);
     debugPrint(_retypePassword.text);
     debugPrint(_passwordController.text);
+
+    // Validate returns true if the form is valid, or false otherwise.
+    if (_formSignUpKey.currentState!.validate()) {
+      debugPrint("ola");
+    }
+
+    // Navigator.pushReplacement(
+    //   context,
+    //   MaterialPageRoute(
+    //     builder: (_) => const VerificationScreen(),
+    //   ),
+    // );
+  }
+
+  void signInAction() {
+    debugPrint(_phoneNumberController.text);
+    debugPrint(_passwordController.text);
+
+    // Validate returns true if the form is valid, or false otherwise.
+    if (_formSignInKey.currentState!.validate()) {
+      debugPrint("Sign in");
+    }
+
+    // Navigator.pushReplacement(
+    //   context,
+    //   MaterialPageRoute(
+    //     builder: (_) => const VerificationScreen(),
+    //   ),
+    // );
   }
 }

@@ -8,17 +8,19 @@ class RenteeInputField extends StatefulWidget {
   final bool isSecure;
   final VoidCallback? suffixOnPressed;
   final TextEditingController? controller;
-  final dynamic validator;
+  final String? Function(String?)? validator;
+  final TextInputType? keyboardType;
 
-  const RenteeInputField({
-    this.label,
-    this.icon,
-    this.placeholder = 'Your placeholder',
-    this.suffixOnPressed,
-    super.key,
-    this.controller,
-    this.validator,
-  }) : isSecure = false;
+  const RenteeInputField(
+      {this.label,
+      this.icon,
+      this.placeholder = 'Your placeholder',
+      this.suffixOnPressed,
+      super.key,
+      this.controller,
+      this.validator,
+      this.keyboardType})
+      : isSecure = false;
 
   const RenteeInputField.password({
     this.label,
@@ -28,6 +30,7 @@ class RenteeInputField extends StatefulWidget {
     super.key,
     this.controller,
     this.validator,
+    this.keyboardType,
   }) : isSecure = true;
 
   @override
@@ -56,6 +59,7 @@ class _RenteeInputFieldState extends State<RenteeInputField> {
         child: widget.icon,
       ),
     );
+
     return Column(
       crossAxisAlignment: CrossAxisAlignment.stretch,
       children: [
@@ -67,13 +71,14 @@ class _RenteeInputFieldState extends State<RenteeInputField> {
         TextFormField(
           validator: widget.validator,
           controller: widget.controller,
-          obscureText: passwordVisible,
+          obscureText: widget.isSecure && passwordVisible,
           obscuringCharacter: '*',
+          keyboardType: widget.keyboardType,
+          onTapOutside: (event) => FocusScope.of(context).unfocus(),
           decoration: InputDecoration(
             floatingLabelBehavior: FloatingLabelBehavior.always,
             filled: true,
             alignLabelWithHint: false,
-            // fillColor: Colors.amber,
             fillColor: RenteeColors.additional6,
             border: inputBorderRoundedNone,
             contentPadding: paddingH20,
