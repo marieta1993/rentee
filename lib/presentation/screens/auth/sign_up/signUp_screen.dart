@@ -19,7 +19,7 @@ class SignUpScreen extends StatefulWidget {
   State<SignUpScreen> createState() => _SignUpScreenState();
 }
 
-class _SignUpScreenState extends State<SignUpScreen> {
+class _SignUpScreenState extends State<SignUpScreen> with Validator {
   @override
   Widget build(BuildContext context) {
     AuthLayoutData signUpData = AuthLayoutData(
@@ -59,6 +59,12 @@ class _SignUpScreenState extends State<SignUpScreen> {
                 text: "Sign up",
                 onPress: () {
                   provider.signUpAction();
+                  Navigator.pushReplacement(
+                    context,
+                    MaterialPageRoute(
+                      builder: (_) => const VerificationScreen(),
+                    ),
+                  );
                 },
               ),
               15.heightBox,

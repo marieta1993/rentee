@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:localization/localization.dart';
 import 'package:provider/provider.dart';
 import 'package:rentee/config/shared/preferences.dart';
@@ -10,6 +11,7 @@ GlobalKey<NavigatorState> navigationStateKey = GlobalKey<NavigatorState>();
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await Preferences.sharedPreferences();
+  await ScreenUtil.ensureScreenSize();
   runApp(const MyApp());
 }
 
@@ -19,6 +21,7 @@ class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
+    ScreenUtil.init(context, designSize: const Size(360, 690));
     return MultiProvider(
         providers: [
           ChangeNotifierProvider(create: (_) => AuthProvider()),

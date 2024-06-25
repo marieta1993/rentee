@@ -1,4 +1,7 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:rentee/presentation/screens/home/main/home_screen/home_screen.dart';
+import 'package:rentee/presentation/screens/home/main/location/location_screen.dart';
 import 'package:uikit/uikit.dart';
 
 void main() => runApp(const TabMainScreen());
@@ -15,14 +18,12 @@ class _TabMainScreenState extends State<TabMainScreen> {
   static const TextStyle optionStyle =
       TextStyle(fontSize: 30, fontWeight: FontWeight.bold);
   static const List<Widget> _widgetOptions = <Widget>[
-    Text(
-      'Index 0: Home',
-      style: optionStyle,
-    ),
-    Text(
-      'Index 1: Business',
-      style: optionStyle,
-    ),
+    HomeScreen(),
+    // Text(
+    //   'Index 0: Home',
+    //   style: optionStyle,
+    // ),
+    LocationPage(),
     Text(
       'Index 2: School',
       style: optionStyle,

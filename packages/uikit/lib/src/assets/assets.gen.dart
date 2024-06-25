@@ -51,6 +51,9 @@ class $AssetsIconsGen {
   /// File path: assets/icons/Filter.svg
   SvgGenImage get filter => const SvgGenImage('assets/icons/Filter.svg');
 
+  /// File path: assets/icons/Group 1.svg
+  SvgGenImage get group1 => const SvgGenImage('assets/icons/Group 1.svg');
+
   /// File path: assets/icons/Heart.svg
   SvgGenImage get heart => const SvgGenImage('assets/icons/Heart.svg');
 
@@ -128,6 +131,7 @@ class $AssetsIconsGen {
         date,
         elevator,
         filter,
+        group1,
         heart,
         hide,
         hotWater,

@@ -5,9 +5,11 @@ import 'package:rentee/presentation/screens/auth/auth_layout.dart';
 import 'package:rentee/presentation/screens/auth/auth_provider.dart';
 import 'package:rentee/presentation/screens/auth/reset/reset_screen.dart';
 import 'package:rentee/presentation/screens/auth/sign_up/signUp_screen.dart';
+import 'package:rentee/presentation/screens/auth/verification/verification_screen.dart';
 import 'package:rentee/utils/extensions/context_localization.dart';
 import 'package:rentee/utils/validators/password_validator.dart';
 import 'package:rentee/utils/validators/phoneNumber_validator.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 import 'package:uikit/uikit.dart';
 
 class SignInScreen extends StatelessWidget {
@@ -53,7 +55,17 @@ class SignInScreen extends StatelessWidget {
               20.heightBox,
               RenteeElevatedButton(
                 text: "Sign in",
-                onPress: provider.signInAction,
+                onPress: () async {
+                  // final prefs = await SharedPreferences.getInstance();
+                  // prefs.setBool('firstLaunch', true);
+                  provider.signInAction();
+                  Navigator.pushReplacement(
+                    context,
+                    MaterialPageRoute(
+                      builder: (_) => const VerificationScreen(),
+                    ),
+                  );
+                },
               ),
               15.heightBox,
               RichText(

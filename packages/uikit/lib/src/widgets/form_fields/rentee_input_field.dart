@@ -60,37 +60,41 @@ class _RenteeInputFieldState extends State<RenteeInputField> {
       ),
     );
 
-    return Column(
-      crossAxisAlignment: CrossAxisAlignment.stretch,
-      children: [
-        Text(
-          widget.label!,
-          style: notoH5.copyWith(color: RenteeColors.additional2),
-        ),
-        15.heightBox,
-        TextFormField(
-          validator: widget.validator,
-          controller: widget.controller,
-          obscureText: widget.isSecure && passwordVisible,
-          obscuringCharacter: '*',
-          keyboardType: widget.keyboardType,
-          onTapOutside: (event) => FocusScope.of(context).unfocus(),
-          decoration: InputDecoration(
-            floatingLabelBehavior: FloatingLabelBehavior.always,
-            filled: true,
-            alignLabelWithHint: false,
-            fillColor: RenteeColors.additional6,
-            border: inputBorderRoundedNone,
-            contentPadding: paddingH20,
-            labelStyle: notoH5.copyWith(color: RenteeColors.additional2),
-            hintText: widget.placeholder,
-            hintStyle: notoP2.copyWith(color: RenteeColors.additional4),
-            suffixIcon: widget.isSecure ? passwordIcon : suffixIcon,
-            suffixIconConstraints: boxConstraintsMxW24,
-          ),
-        ),
-      ],
+    var field = TextFormField(
+      validator: widget.validator,
+      controller: widget.controller,
+      obscureText: widget.isSecure && passwordVisible,
+      obscuringCharacter: '*',
+      keyboardType: widget.keyboardType,
+      onTapOutside: (event) => FocusScope.of(context).unfocus(),
+      decoration: InputDecoration(
+        floatingLabelBehavior: FloatingLabelBehavior.always,
+        filled: true,
+        alignLabelWithHint: false,
+        fillColor: RenteeColors.additional6,
+        border: inputBorderRoundedNone,
+        contentPadding: paddingH20,
+        labelStyle: notoH5.copyWith(color: RenteeColors.additional2),
+        hintText: widget.placeholder,
+        hintStyle: notoP2.copyWith(color: RenteeColors.additional4),
+        suffixIcon: widget.isSecure ? passwordIcon : suffixIcon,
+        suffixIconConstraints: boxConstraintsMxW24,
+      ),
     );
+    return widget.label != null && widget.label!.isNotEmpty
+        ? Column(
+            crossAxisAlignment: CrossAxisAlignment.stretch,
+            mainAxisSize: MainAxisSize.min,
+            children: [
+              Text(
+                widget.label!,
+                style: notoH5.copyWith(color: RenteeColors.additional2),
+              ),
+              15.heightBox,
+              field
+            ],
+          )
+        : field;
   }
 
   passwordOnPress() {

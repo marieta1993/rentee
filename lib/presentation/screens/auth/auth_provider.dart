@@ -1,4 +1,5 @@
-import 'package:flutter/cupertino.dart';
+import 'package:flutter/material.dart';
+import 'package:rentee/presentation/screens/auth/verification/verification_screen.dart';
 
 class AuthProvider extends ChangeNotifier {
   final TextEditingController _fullNameController = TextEditingController();
@@ -39,13 +40,6 @@ class AuthProvider extends ChangeNotifier {
     if (_formSignUpKey.currentState!.validate()) {
       debugPrint("ola");
     }
-
-    // Navigator.pushReplacement(
-    //   context,
-    //   MaterialPageRoute(
-    //     builder: (_) => const VerificationScreen(),
-    //   ),
-    // );
   }
 
   void signInAction() {
@@ -56,12 +50,5 @@ class AuthProvider extends ChangeNotifier {
     if (_formSignInKey.currentState!.validate()) {
       debugPrint("Sign in");
     }
-
-    // Navigator.pushReplacement(
-    //   context,
-    //   MaterialPageRoute(
-    //     builder: (_) => const VerificationScreen(),
-    //   ),
-    // );
   }
 }
