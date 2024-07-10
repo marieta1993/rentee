@@ -4,15 +4,13 @@ import 'package:provider/provider.dart';
 import 'package:rentee/presentation/screens/auth/auth_layout.dart';
 import 'package:rentee/presentation/screens/auth/auth_provider.dart';
 import 'package:rentee/presentation/screens/auth/reset/reset_screen.dart';
-import 'package:rentee/presentation/screens/auth/sign_up/signUp_screen.dart';
+import 'package:rentee/presentation/screens/auth/sign_up/sign_up_screen.dart';
 import 'package:rentee/presentation/screens/auth/verification/verification_screen.dart';
 import 'package:rentee/utils/extensions/context_localization.dart';
-import 'package:rentee/utils/validators/password_validator.dart';
-import 'package:rentee/utils/validators/phoneNumber_validator.dart';
-import 'package:shared_preferences/shared_preferences.dart';
+import 'package:rentee/utils/validators/validators.dart';
 import 'package:uikit/uikit.dart';
 
-class SignInScreen extends StatelessWidget {
+class SignInScreen extends StatelessWidget with Validator {
   const SignInScreen({super.key});
 
   @override
@@ -25,14 +23,14 @@ class SignInScreen extends StatelessWidget {
             children: [
               RenteeInputField(
                 controller: provider.phoneNumberController,
-                validator: phoneNumberValidator,
+                validator: phoneNumberValidation,
                 placeholder: "Your phone number here",
                 label: "Phone number",
               ),
               20.heightBox,
               RenteeInputField.password(
                 controller: provider.passwordController,
-                validator: passwordValidator,
+                validator: passwordValidation,
                 label: "Password",
               ),
               20.heightBox,

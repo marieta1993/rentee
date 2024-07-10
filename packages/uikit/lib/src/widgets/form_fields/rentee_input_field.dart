@@ -5,22 +5,24 @@ class RenteeInputField extends StatefulWidget {
   final String? label;
   final String? placeholder;
   final Widget? icon;
+  final Widget? prefixIcon;
   final bool isSecure;
   final VoidCallback? suffixOnPressed;
   final TextEditingController? controller;
   final String? Function(String?)? validator;
   final TextInputType? keyboardType;
 
-  const RenteeInputField(
-      {this.label,
-      this.icon,
-      this.placeholder = 'Your placeholder',
-      this.suffixOnPressed,
-      super.key,
-      this.controller,
-      this.validator,
-      this.keyboardType})
-      : isSecure = false;
+  const RenteeInputField({
+    this.label,
+    this.icon,
+    this.placeholder = 'Your placeholder',
+    this.suffixOnPressed,
+    super.key,
+    this.controller,
+    this.validator,
+    this.keyboardType,
+    this.prefixIcon,
+  }) : isSecure = false;
 
   const RenteeInputField.password({
     this.label,
@@ -31,6 +33,7 @@ class RenteeInputField extends StatefulWidget {
     this.controller,
     this.validator,
     this.keyboardType,
+    this.prefixIcon,
   }) : isSecure = true;
 
   @override
@@ -78,7 +81,12 @@ class _RenteeInputFieldState extends State<RenteeInputField> {
         hintText: widget.placeholder,
         hintStyle: notoP2.copyWith(color: RenteeColors.additional4),
         suffixIcon: widget.isSecure ? passwordIcon : suffixIcon,
+        prefixIcon: Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 20.0),
+          child: widget.prefixIcon,
+        ),
         suffixIconConstraints: boxConstraintsMxW24,
+        prefixIconConstraints: boxConstraintsMxW60,
       ),
     );
     return widget.label != null && widget.label!.isNotEmpty

@@ -3,13 +3,10 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:rentee/presentation/screens/auth/auth_layout.dart';
 import 'package:rentee/presentation/screens/auth/auth_provider.dart';
-import 'package:rentee/presentation/screens/auth/sign_in/signIn_Screen.dart';
+import 'package:rentee/presentation/screens/auth/sign_in/sign_in_screen.dart';
 import 'package:rentee/presentation/screens/auth/verification/verification_screen.dart';
 import 'package:rentee/utils/extensions/context_localization.dart';
-import 'package:rentee/utils/validators/confirmPassword_validator.dart';
-import 'package:rentee/utils/validators/fullName_validator.dart';
-import 'package:rentee/utils/validators/password_validator.dart';
-import 'package:rentee/utils/validators/phoneNumber_validator.dart';
+import 'package:rentee/utils/validators/validators.dart';
 import 'package:uikit/uikit.dart';
 
 class SignUpScreen extends StatefulWidget {
@@ -36,7 +33,7 @@ class _SignUpScreenState extends State<SignUpScreen> with Validator {
               ),
               20.heightBox,
               RenteeInputField(
-                validator: phoneNumberValidator,
+                validator: phoneNumberValidation,
                 controller: provider.phoneNumberController,
                 keyboardType: TextInputType.phone,
                 placeholder: "Your phone number here",
@@ -45,14 +42,8 @@ class _SignUpScreenState extends State<SignUpScreen> with Validator {
               20.heightBox,
               RenteeInputField.password(
                 controller: provider.passwordController,
-                validator: passwordValidator,
+                validator: passwordValidation,
                 label: "Password",
-              ),
-              20.heightBox,
-              RenteeInputField.password(
-                validator: confirmPasswordValidator,
-                controller: provider.retypePassword,
-                label: 'Retype your password',
               ),
               20.heightBox,
               RenteeElevatedButton(

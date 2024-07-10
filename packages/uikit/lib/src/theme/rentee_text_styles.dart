@@ -110,7 +110,7 @@ TextStyle get notoP3 => const TextStyle(
 TextStyle get notoP4 => const TextStyle(
       fontFamily: FontFamily.notoSans,
       fontSize: 11.0,
-      height: 44.0 / 11.0,
+      height: 14.0 / 11.0,
       fontWeight: FontWeight.w500,
       package: packageName,
     );

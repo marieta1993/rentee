@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:rentee/presentation/screens/auth/verification/verification_screen.dart';
 
 class AuthProvider extends ChangeNotifier {
   final TextEditingController _fullNameController = TextEditingController();

@@ -46,6 +46,9 @@ BorderRadius get circularRadius15 => const BorderRadius.all(
 BoxConstraints get boxConstraintsMxW24 => const BoxConstraints(
       maxWidth: 24,
     );
+BoxConstraints get boxConstraintsMxW60 => const BoxConstraints(
+      maxWidth: 60,
+    );
 
 extension DoubleSizedBox on num {
   Widget get heightBox => SizedBox(

@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
-import 'package:rentee/presentation/screens/auth/sign_in/signIn_Screen.dart';
+import 'package:rentee/presentation/screens/auth/sign_in/sign_in_screen.dart';
 import 'package:rentee/presentation/screens/onboarding/onboarding_screen.dart';
 import 'package:rentee/utils/extensions/context_localization.dart';
 import 'package:shared_preferences/shared_preferences.dart';

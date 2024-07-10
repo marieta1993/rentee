@@ -18,6 +18,9 @@ class $AssetsIconsGen {
   /// File path: assets/icons/All estate.svg
   SvgGenImage get allEstate => const SvgGenImage('assets/icons/All estate.svg');
 
+  /// File path: assets/icons/Back.svg
+  SvgGenImage get back => const SvgGenImage('assets/icons/Back.svg');
+
   /// File path: assets/icons/Bag.svg
   SvgGenImage get bag => const SvgGenImage('assets/icons/Bag.svg');
 
@@ -81,6 +84,9 @@ class $AssetsIconsGen {
   /// File path: assets/icons/Search.svg
   SvgGenImage get search => const SvgGenImage('assets/icons/Search.svg');
 
+  /// File path: assets/icons/Selected.svg
+  SvgGenImage get selected => const SvgGenImage('assets/icons/Selected.svg');
+
   /// File path: assets/icons/Show.svg
   SvgGenImage get show => const SvgGenImage('assets/icons/Show.svg');
 
@@ -95,6 +101,12 @@ class $AssetsIconsGen {
 
   /// File path: assets/icons/Transfer.svg
   SvgGenImage get transfer => const SvgGenImage('assets/icons/Transfer.svg');
+
+  /// File path: assets/icons/Unselected.png
+  AssetGenImage get unselectedPng => const AssetGenImage('assets/icons/Unselected.png');
+
+  /// File path: assets/icons/Unselected.svg
+  SvgGenImage get unselectedSvg => const SvgGenImage('assets/icons/Unselected.svg');
 
   /// File path: assets/icons/Vector.svg
   SvgGenImage get vector => const SvgGenImage('assets/icons/Vector.svg');
@@ -118,8 +130,9 @@ class $AssetsIconsGen {
   SvgGenImage get support => const SvgGenImage('assets/icons/support.svg');
 
   /// List of all assets
-  List<SvgGenImage> get values => [
+  List<dynamic> get values => [
         allEstate,
+        back,
         bag,
         bathroom,
         bedroom,
@@ -141,11 +154,14 @@ class $AssetsIconsGen {
         paypal,
         policy,
         search,
+        selected,
         show,
         signOut,
         star,
         time,
         transfer,
+        unselectedPng,
+        unselectedSvg,
         vector,
         zoom,
         crown,
@@ -165,6 +181,12 @@ class $AssetsImagesGen {
   /// File path: assets/images/Shield Done.svg
   SvgGenImage get shieldDone => const SvgGenImage('assets/images/Shield Done.svg');
 
+  /// File path: assets/images/booking_complete.png
+  AssetGenImage get bookingComplete => const AssetGenImage('assets/images/booking_complete.png');
+
+  /// File path: assets/images/booking_empty.png
+  AssetGenImage get bookingEmpty => const AssetGenImage('assets/images/booking_empty.png');
+
   /// File path: assets/images/bottom_bg.svg
   SvgGenImage get bottomBg => const SvgGenImage('assets/images/bottom_bg.svg');
 
@@ -181,8 +203,17 @@ class $AssetsImagesGen {
   AssetGenImage get onboarding3 => const AssetGenImage('assets/images/onboarding_3.jpg');
 
   /// List of all assets
-  List<dynamic> get values =>
-      [frame, shieldDone, bottomBg, bottomBg1, onboarding1, onboarding2, onboarding3];
+  List<dynamic> get values => [
+        frame,
+        shieldDone,
+        bookingComplete,
+        bookingEmpty,
+        bottomBg,
+        bottomBg1,
+        onboarding1,
+        onboarding2,
+        onboarding3
+      ];
 }
 
 class RenteeAssets {

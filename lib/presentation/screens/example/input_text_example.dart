@@ -56,7 +56,7 @@ class _InputTextExampleState extends State<InputTextExample> {
                   options: dropdownItems,
                   onChanged: onChanged,
                 ),
-                RenteePinPut(
+                const RenteePinPut(
                   label: "Your code here",
                 ),
                 RenteeRadioButton(

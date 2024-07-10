@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:rentee/presentation/screens/example/example.dart';
-import 'package:shared_preferences/shared_preferences.dart';
 
 class RenteeMain extends StatefulWidget {
   const RenteeMain({super.key, required this.title});

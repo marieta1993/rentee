@@ -30,10 +30,10 @@ class _ExampleScreenState extends State<ExampleScreen> {
           bottom: TabBar(
             tabs: [
               Tab(text: context.localized.helloWorld),
-              Tab(text: "Buttons"),
-              Tab(text: "Colors"),
-              Tab(text: "Form fields"),
-              Tab(text: "Bottom Bar"),
+              const Tab(text: "Buttons"),
+              const Tab(text: "Colors"),
+              const Tab(text: "Form fields"),
+              const Tab(text: "Bottom Bar"),
             ],
           ),
           title: Row(

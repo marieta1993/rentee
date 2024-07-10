@@ -1,7 +1,7 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:rentee/presentation/screens/home/main/home_screen/home_screen.dart';
-import 'package:rentee/presentation/screens/home/main/location/location_screen.dart';
+import 'package:rentee/presentation/screens/home/main/booking_tab/booking_tab_main_screen.dart';
+import 'package:rentee/presentation/screens/home/main/favorite_tab/favorite_screen.dart';
+import 'package:rentee/presentation/screens/home/main/home_tab/home_screen.dart';
 import 'package:uikit/uikit.dart';
 
 void main() => runApp(const TabMainScreen());
@@ -15,30 +15,16 @@ class TabMainScreen extends StatefulWidget {
 
 class _TabMainScreenState extends State<TabMainScreen> {
   int _selectedIndex = 0;
-  static const TextStyle optionStyle =
-      TextStyle(fontSize: 30, fontWeight: FontWeight.bold);
+
   static const List<Widget> _widgetOptions = <Widget>[
     HomeScreen(),
-    // Text(
-    //   'Index 0: Home',
-    //   style: optionStyle,
-    // ),
-    LocationPage(),
-    Text(
-      'Index 2: School',
-      style: optionStyle,
-    ),
-    Text(
-      'Index 3: School',
-      style: optionStyle,
-    ),
+    FavoriteScreen(),
+    // LocationPage(),
+    BookingTabMainScreen(),
   ];
   static List<RenteeTabItem> _tabItems = <RenteeTabItem>[
     RenteeTabItem(
       icon: RenteeAssets.icons.vector.svg(),
-    ),
-    RenteeTabItem(
-      icon: RenteeAssets.icons.combinedShapeSvg.svg(),
     ),
     RenteeTabItem(
       icon: $AssetsIconsGen().heart.svg(),
