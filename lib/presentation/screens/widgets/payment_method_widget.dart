@@ -18,6 +18,7 @@ class PaymentMethodWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return InkWell(
+      borderRadius: circularRadius15,
       onTap: itemOnClicked,
       child: Container(
         decoration: BoxDecoration(

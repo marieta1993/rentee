@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:rentee/presentation/screens/home/main/booking_tab/booking_item_details.dart';
 import 'package:rentee/presentation/screens/home/main/home_tab/home_screen.dart';
 import 'package:rentee/presentation/screens/home/tab_main_screen.dart';
 import 'package:uikit/uikit.dart';
@@ -81,7 +82,14 @@ class BookingCompleteScreen extends StatelessWidget {
                     Expanded(
                         child: RenteeElevatedButton.tertiary(
                       text: "See detail",
-                      onPress: () {},
+                      onPress: () {
+                        Navigator.pushAndRemoveUntil(
+                            context,
+                            MaterialPageRoute(
+                                builder: (_) =>
+                                    const BookingItemDetailsScreen()),
+                            (route) => false);
+                      },
                     )),
                   ],
                 )

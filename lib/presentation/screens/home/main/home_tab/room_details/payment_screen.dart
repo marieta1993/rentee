@@ -26,29 +26,38 @@ class _PaymentScreenState extends State<PaymentScreen> {
         onBackClick: () => Navigator.pop(context),
       ),
       body: SafeArea(
-        child: ListView(
-          padding: paddingAll32,
-          children: [
-            CardRoomItemWidget(
-              cardColor: RenteeColors.additional6,
-              itemTitle: 'Blaaa',
-              itemPrice: 12.0,
-              itemBathCount: 2,
-              itemBedCount: 4,
-              itemLocation: '1.2 km',
-              itemRating: 5,
-              imgSrc:
-                  "https://images.unsplash.com/flagged/photo-1590227000970-3ae55d48501e?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-              onItemClick: () {},
-            ),
-            SizedBox(
-                height: 1.sh,
-                // width: 1.sw,
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  mainAxisSize: MainAxisSize.min,
+        child: SingleChildScrollView(
+          child: Container(
+            color: Colors.lime,
+            padding: paddingAll32,
+            constraints: BoxConstraints(
+                minHeight: MediaQuery.of(context).size.height - 88),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.stretch,
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                // Column(
+                //   crossAxisAlignment: CrossAxisAlignment.start,
+                //   mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                //   mainAxisSize: MainAxisSize.max,
+                //   children: [
+                //
+                //   ],
+                // ),
+                Column(
                   children: [
+                    CardRoomItemWidget(
+                      cardColor: RenteeColors.additional6,
+                      itemTitle: 'Blaaa',
+                      itemPrice: 12.0,
+                      itemBathCount: 2,
+                      itemBedCount: 4,
+                      itemLocation: '1.2 km',
+                      itemRating: 5,
+                      imgSrc:
+                          "https://images.unsplash.com/flagged/photo-1590227000970-3ae55d48501e?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+                      onItemClick: () {},
+                    ),
                     ListTile(
                       contentPadding: EdgeInsets.zero,
                       isThreeLine: false,
@@ -136,52 +145,46 @@ class _PaymentScreenState extends State<PaymentScreen> {
                       subtitle: paymentMethodsBuilder(),
                     ),
                     isCreditSelected
-                        ? const Expanded(
-                            child: Form(
-                              child: Column(
-                                crossAxisAlignment: CrossAxisAlignment.stretch,
-                                mainAxisAlignment: MainAxisAlignment.start,
-                                mainAxisSize: MainAxisSize.max,
-                                children: [
-                                  RenteeInputField(
-                                    label: 'Card holder’s name',
-                                    placeholder: 'Your card’s name here',
-                                  ),
-                                  RenteeInputField(
-                                    label: 'Card number',
-                                    placeholder: '1224 1232 **** ****',
-                                  ),
-                                  RenteeInputField(
-                                    label: 'Expiration date',
-                                    placeholder: '12/21',
-                                  ),
-                                  RenteeInputField(
-                                    label: 'CVV',
-                                    placeholder: '***',
-                                  )
-                                ],
-                              ),
+                        ? Form(
+                            child: Column(
+                              crossAxisAlignment: CrossAxisAlignment.stretch,
+                              mainAxisAlignment: MainAxisAlignment.start,
+                              mainAxisSize: MainAxisSize.max,
+                              children: [
+                                RenteeInputField(
+                                  label: 'Card holder’s name',
+                                  placeholder: 'Your card’s name here',
+                                ),
+                                RenteeInputField(
+                                  label: 'Card number',
+                                  placeholder: '1224 1232 **** ****',
+                                ),
+                                RenteeInputField(
+                                  label: 'Expiration date',
+                                  placeholder: '12/21',
+                                ),
+                                RenteeInputField(
+                                  label: 'CVV',
+                                  placeholder: '***',
+                                )
+                              ],
                             ),
                           )
                         : const SizedBox.shrink(),
-                    Row(
-                      children: [
-                        Expanded(
-                          child: ElevatedButton(
-                              onPressed: () {
-                                Navigator.push(
-                                  context,
-                                  MaterialPageRoute(
-                                      builder: (_) => const CheckOutScreen()),
-                                );
-                              },
-                              child: const Text('Complete your booking')),
-                        ),
-                      ],
-                    )
                   ],
-                ))
-          ],
+                ),
+                ElevatedButton(
+                    onPressed: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (_) => const CheckOutScreen()),
+                      );
+                    },
+                    child: const Text('Complete your booking'))
+              ],
+            ),
+          ),
         ),
       ),
     );
