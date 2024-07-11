@@ -12,7 +12,7 @@ class BookingCompleteScreen extends StatelessWidget {
       body: SafeArea(
         child: Center(
           child: Container(
-            padding: const EdgeInsets.symmetric(horizontal: 32),
+            padding: paddingH32,
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.center,
               mainAxisAlignment: MainAxisAlignment.center,

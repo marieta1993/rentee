@@ -19,15 +19,14 @@ class _TabMainScreenState extends State<TabMainScreen> {
   static const List<Widget> _widgetOptions = <Widget>[
     HomeScreen(),
     FavoriteScreen(),
-    // LocationPage(),
     BookingTabMainScreen(),
   ];
   static List<RenteeTabItem> _tabItems = <RenteeTabItem>[
     RenteeTabItem(
-      icon: RenteeAssets.icons.vector.svg(),
+      icon: RenteeAssets.icons.homeUnselected.svg(),
     ),
     RenteeTabItem(
-      icon: $AssetsIconsGen().heart.svg(),
+      icon: $AssetsIconsGen().heartUnselected.svg(),
     ),
     RenteeTabItem(
       icon: $AssetsIconsGen().bag.svg(),
@@ -42,11 +41,9 @@ class _TabMainScreenState extends State<TabMainScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      // appBar: RenteeAppBar(title: 'Ola',leading: Icon(Icons.add),),
       body: Center(
         child: _widgetOptions.elementAt(_selectedIndex),
       ),
-
       bottomNavigationBar: RenteeBottomNavigationBar(
         items: _tabItems,
         selectedIndex: _selectedIndex,

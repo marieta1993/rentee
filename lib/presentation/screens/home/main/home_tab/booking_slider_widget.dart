@@ -22,8 +22,8 @@ class BookingSliderWidget extends StatefulWidget {
 class _BookingSliderWidgetState extends State<BookingSliderWidget> {
   Container _buildContent() {
     return Container(
-      padding: EdgeInsets.zero,
-      margin: const EdgeInsets.symmetric(horizontal: 32, vertical: 0),
+      padding: padding0,
+      margin: paddingH32,
       child: CarouselSlider.builder(
         itemCount: imgList.length,
         options: CarouselOptions(
@@ -37,11 +37,11 @@ class _BookingSliderWidgetState extends State<BookingSliderWidget> {
           return Stack(fit: StackFit.expand, children: [
             Container(
               // width: MediaQuery.of(context).size.width,
-              margin: EdgeInsets.zero,
+              margin: padding0,
               //ClipRRect for image border radius
               child: ClipRRect(
                 clipBehavior: Clip.antiAliasWithSaveLayer,
-                borderRadius: BorderRadius.circular(15),
+                borderRadius: circularRadius15,
                 child: Image.network(
                   imgList[i],
                   fit: BoxFit.cover,
@@ -55,10 +55,9 @@ class _BookingSliderWidgetState extends State<BookingSliderWidget> {
                 right: 0,
                 bottom: 0,
                 child: Container(
-                  padding:
-                      const EdgeInsets.symmetric(horizontal: 20, vertical: 25),
+                  padding: paddingH20V25,
                   decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(12),
+                    borderRadius: circularRadius12,
                     color: Colors.black.withOpacity(0.2),
                   ),
                   child: Column(
@@ -90,9 +89,8 @@ class _BookingSliderWidgetState extends State<BookingSliderWidget> {
                           Container(
                             decoration: BoxDecoration(
                                 border: Border.all(color: RenteeColors.white),
-                                borderRadius: BorderRadius.circular(10)),
-                            padding: const EdgeInsets.symmetric(
-                                horizontal: 14, vertical: 6),
+                                borderRadius: circularRadius10),
+                            padding: paddingH14V6,
                             child: Text(
                               "\$12.50/1 hour",
                               style: notoP3.copyWith(
@@ -120,7 +118,7 @@ class _BookingSliderWidgetState extends State<BookingSliderWidget> {
 
   final List<Widget> imageSliders = imgList
       .map((item) => Container(
-            margin: const EdgeInsets.all(0.0),
+            margin: padding0,
             child: ClipRRect(
               borderRadius: const BorderRadius.all(Radius.circular(15.0)),
               child: Stack(

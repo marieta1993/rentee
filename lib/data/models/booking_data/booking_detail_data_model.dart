@@ -1,6 +1,6 @@
 import 'package:rentee/data/models/booking_data/booking_room_model.dart';
 
-enum BillingMethod { credit, cash }
+enum BillingMethod { credit, transit, paypal }
 
 class BookingDetailDataModel {
   final String id;

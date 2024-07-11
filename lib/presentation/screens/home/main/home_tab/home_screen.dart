@@ -4,7 +4,7 @@ import 'package:geolocator/geolocator.dart';
 import 'package:rentee/presentation/screens/home/main/home_tab/home_screen_tab_main.dart';
 import 'package:uikit/uikit.dart';
 
-import '../location/Location_handler.dart';
+import '../location/location_handler.dart';
 
 class SearchToolBar extends StatelessWidget implements PreferredSizeWidget {
   const SearchToolBar({super.key});
@@ -85,7 +85,7 @@ class _HomeScreenState extends State<HomeScreen> {
           ),
           trailing: const CircleAvatar(),
           subtitle: Padding(
-            padding: const EdgeInsets.only(top: 8.0),
+            padding: paddingT8,
             child: Row(
               children: [
                 RenteeAssets.icons.locate.svg(
@@ -109,8 +109,7 @@ class _HomeScreenState extends State<HomeScreen> {
           ),
         ),
         bottom: const SearchToolBar(),
-        shape: const RoundedRectangleBorder(
-            borderRadius: BorderRadius.vertical(bottom: Radius.circular(25))),
+        shape: RoundedRectangleBorder(borderRadius: circularRadiusB25),
         backgroundColor: RenteeColors.additional1,
       ),
       body: const HomeScreenTabMain(),

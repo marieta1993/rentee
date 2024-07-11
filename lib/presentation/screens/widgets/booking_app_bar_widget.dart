@@ -27,7 +27,7 @@ class BookingAppBarWidget extends StatelessWidget
                   : const Radius.circular(0))),
       title: Container(
         height: 40,
-        margin: const EdgeInsets.symmetric(horizontal: 32),
+        margin: paddingH32,
         child: Row(
           mainAxisSize: MainAxisSize.max,
           crossAxisAlignment: CrossAxisAlignment.stretch,

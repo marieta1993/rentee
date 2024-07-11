@@ -66,7 +66,7 @@ class BookingItemWidget extends StatelessWidget {
                       ),
                     ),
                     Padding(
-                      padding: const EdgeInsets.symmetric(vertical: 4.0),
+                      padding: paddingV4,
                       child: Text(
                         '$bookingTime on $bookingDate',
                         style: notoP4.copyWith(

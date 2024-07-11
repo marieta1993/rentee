@@ -24,7 +24,7 @@ class _BookingRoomScreenState extends State<BookingRoomScreen> {
       ),
       body: SafeArea(
         child: ListView(
-          padding: const EdgeInsets.all(32),
+          padding: paddingAll32,
           children: [
             CardRoomItemWidget(
               cardColor: RenteeColors.additional6,

@@ -21,11 +21,11 @@ class PaymentMethodWidget extends StatelessWidget {
       onTap: itemOnClicked,
       child: Container(
         decoration: BoxDecoration(
-          borderRadius: BorderRadius.circular(15),
+          borderRadius: circularRadius15,
           color: isSelected ? RenteeColors.tertiary : RenteeColors.additional5,
         ),
         child: Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 14, vertical: 18.0),
+          padding: paddingH14V18,
           child: ConstrainedBox(
             constraints: const BoxConstraints(
               minWidth: 66,

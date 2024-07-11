@@ -17,7 +17,7 @@ class CheckOutScreen extends StatelessWidget {
       ),
       body: SafeArea(
         child: ListView(
-          padding: const EdgeInsets.all(32),
+          padding: paddingAll32,
           children: [
             CardRoomItemWidget(
               cardColor: RenteeColors.additional6,
@@ -40,10 +40,10 @@ class CheckOutScreen extends StatelessWidget {
                   mainAxisSize: MainAxisSize.min,
                   children: [
                     ListTile(
-                      contentPadding: EdgeInsets.zero,
+                      contentPadding: padding0,
                       isThreeLine: false,
                       title: Padding(
-                        padding: const EdgeInsets.only(bottom: 15.0),
+                        padding: paddingB15,
                         child: Text(
                           'Payment detail',
                           style: notoH5.copyWith(

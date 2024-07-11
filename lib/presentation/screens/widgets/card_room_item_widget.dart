@@ -30,7 +30,7 @@ class CardRoomItemWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return Card(
       color: cardColor,
-      margin: const EdgeInsets.symmetric(vertical: 10),
+      margin: paddingV10,
       child: Padding(
         padding: const EdgeInsets.only(
           left: 11.0,
@@ -45,7 +45,7 @@ class CardRoomItemWidget extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               ClipRRect(
-                borderRadius: BorderRadius.circular(15),
+                borderRadius: circularRadius15,
                 child: Image.network(
                   imgSrc ?? '',
                   fit: BoxFit.fitHeight,
@@ -81,9 +81,8 @@ class CardRoomItemWidget extends StatelessWidget {
                             decoration: BoxDecoration(
                                 border:
                                     Border.all(color: RenteeColors.additional1),
-                                borderRadius: BorderRadius.circular(10)),
-                            padding: const EdgeInsets.symmetric(
-                                horizontal: 14, vertical: 6),
+                                borderRadius: circularRadius10),
+                            padding: paddingH14V6,
                             child: Text(
                               "\$$itemPrice /1 hour",
                               style: notoP3.copyWith(

@@ -25,7 +25,7 @@ class _HomeScreenTabMainState extends State<HomeScreenTabMain> {
   Widget build(BuildContext context) {
     return ListView(children: [
       Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 32.0, vertical: 8),
+        padding: paddingV8H32,
         child: CustomSlidingSegmentedControl<int>(
           // controller: controller,
           padding: 32,
@@ -35,11 +35,11 @@ class _HomeScreenTabMainState extends State<HomeScreenTabMain> {
           children: _children,
           decoration: BoxDecoration(
             color: RenteeColors.additional5,
-            borderRadius: BorderRadius.circular(15),
+            borderRadius: circularRadius15,
           ),
           thumbDecoration: BoxDecoration(
             color: RenteeColors.primary,
-            borderRadius: BorderRadius.circular(15),
+            borderRadius: circularRadius15,
           ),
 
           onValueChanged: (v) {},

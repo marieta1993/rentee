@@ -38,7 +38,7 @@ class _RoomDetailsScreenState extends State<RoomDetailsScreen> {
           children: [
             buildRoomImageCarousel(),
             Container(
-              margin: const EdgeInsets.all(32.0),
+              margin: paddingAll32,
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
@@ -57,11 +57,10 @@ class _RoomDetailsScreenState extends State<RoomDetailsScreen> {
                     height: 85,
                     decoration: BoxDecoration(
                       color: RenteeColors.additional1,
-                      borderRadius: BorderRadius.circular(20),
+                      borderRadius: circularRadius20,
                     ),
                     child: Padding(
-                      padding: const EdgeInsets.symmetric(
-                          horizontal: 16.0, vertical: 12),
+                      padding: paddingH16V12,
                       child: Row(
                         mainAxisSize: MainAxisSize.max,
                         crossAxisAlignment: CrossAxisAlignment.center,
@@ -69,7 +68,7 @@ class _RoomDetailsScreenState extends State<RoomDetailsScreen> {
                         children: [
                           InkWell(
                             child: Padding(
-                              padding: const EdgeInsets.all(16.0),
+                              padding: paddingAll16,
                               child: _isFavorite
                                   ? RenteeAssets.icons.unselectedSvg.svg(
                                       colorFilter: const ColorFilter.mode(
@@ -117,16 +116,15 @@ class _RoomDetailsScreenState extends State<RoomDetailsScreen> {
 
   buildRoomImageCarousel() {
     return Container(
-      decoration: const BoxDecoration(
+      decoration: BoxDecoration(
         color: RenteeColors.additional1,
-        borderRadius: BorderRadius.only(
-            bottomLeft: Radius.circular(35), bottomRight: Radius.circular(35)),
+        borderRadius: circularRadiusBL35BR35,
       ),
       child: Column(
         children: [
           Container(
-            padding: EdgeInsets.zero,
-            margin: const EdgeInsets.symmetric(horizontal: 15, vertical: 0),
+            padding: padding0,
+            margin: paddingH15,
             child: CarouselSlider.builder(
               itemCount: imgList.length,
               options: CarouselOptions(
@@ -143,7 +141,7 @@ class _RoomDetailsScreenState extends State<RoomDetailsScreen> {
                 return Stack(fit: StackFit.expand, children: [
                   ClipRRect(
                     clipBehavior: Clip.antiAliasWithSaveLayer,
-                    borderRadius: BorderRadius.circular(35),
+                    borderRadius: circularRadius35,
                     child: Image.network(
                       imgList[i],
                       fit: BoxFit.cover,
@@ -156,10 +154,9 @@ class _RoomDetailsScreenState extends State<RoomDetailsScreen> {
                       right: 0,
                       bottom: 0,
                       child: Container(
-                        padding: const EdgeInsets.symmetric(
-                            horizontal: 20, vertical: 25),
+                        padding: paddingH20V25,
                         decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(35),
+                          borderRadius: circularRadius35,
                           color: Colors.black.withOpacity(0.2),
                         ),
                         child: Column(
@@ -184,9 +181,8 @@ class _RoomDetailsScreenState extends State<RoomDetailsScreen> {
                                   decoration: BoxDecoration(
                                       border:
                                           Border.all(color: RenteeColors.white),
-                                      borderRadius: BorderRadius.circular(10)),
-                                  padding: const EdgeInsets.symmetric(
-                                      horizontal: 14, vertical: 6),
+                                      borderRadius: circularRadius10),
+                                  padding: paddingH14V6,
                                   child: Text(
                                     "\$12.50/1 hour",
                                     style: notoP3.copyWith(
@@ -207,8 +203,7 @@ class _RoomDetailsScreenState extends State<RoomDetailsScreen> {
           13.heightBox,
           buildCarouselIndicator(),
           Padding(
-            padding:
-                const EdgeInsets.symmetric(horizontal: 32.0, vertical: 13.0),
+            padding: paddingH32V13,
             child: Row(
               children: [
                 RenteeAssets.icons.locate.svg(
@@ -231,7 +226,7 @@ class _RoomDetailsScreenState extends State<RoomDetailsScreen> {
             ),
           ),
           Padding(
-            padding: const EdgeInsets.only(left: 32.0, bottom: 32.0),
+            padding: paddingL32B32,
             child: Row(
               children: [
                 Row(
@@ -287,7 +282,7 @@ class _RoomDetailsScreenState extends State<RoomDetailsScreen> {
       children: [
         for (int i = 0; i < imgList.length; i++)
           Container(
-              margin: const EdgeInsets.all(5),
+              margin: paddingAll5,
               height: i == _currentPage ? 10 : 8,
               width: i == _currentPage ? 10 : 8,
               decoration: BoxDecoration(

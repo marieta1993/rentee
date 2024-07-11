@@ -123,6 +123,15 @@ class $AssetsIconsGen {
   /// File path: assets/icons/gear.svg
   SvgGenImage get gear => const SvgGenImage('assets/icons/gear.svg');
 
+  /// File path: assets/icons/heart_selected.png
+  AssetGenImage get heartSelected => const AssetGenImage('assets/icons/heart_selected.png');
+
+  /// File path: assets/icons/heart_unselected.svg
+  SvgGenImage get heartUnselected => const SvgGenImage('assets/icons/heart_unselected.svg');
+
+  /// File path: assets/icons/home_unselected.svg
+  SvgGenImage get homeUnselected => const SvgGenImage('assets/icons/home_unselected.svg');
+
   /// File path: assets/icons/personal.svg
   SvgGenImage get personal => const SvgGenImage('assets/icons/personal.svg');
 
@@ -167,6 +176,9 @@ class $AssetsIconsGen {
         crown,
         dropdown,
         gear,
+        heartSelected,
+        heartUnselected,
+        homeUnselected,
         personal,
         support
       ];

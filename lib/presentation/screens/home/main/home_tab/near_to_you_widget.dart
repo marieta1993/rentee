@@ -11,7 +11,7 @@ class NearToYou extends StatelessWidget {
   Widget build(BuildContext context) {
     return Column(crossAxisAlignment: CrossAxisAlignment.stretch, children: [
       Padding(
-        padding: const EdgeInsets.symmetric(vertical: 20.0, horizontal: 32),
+        padding: paddingH32V20,
         child: Text(
           "Near to you",
           textAlign: TextAlign.left,
@@ -20,7 +20,7 @@ class NearToYou extends StatelessWidget {
         ),
       ),
       Container(
-          margin: const EdgeInsets.symmetric(horizontal: 32),
+          margin: paddingH32,
           height: 380.sp,
           child: ListView.builder(
             itemBuilder: (context, index) {
@@ -39,9 +39,7 @@ class NearToYou extends StatelessWidget {
                 },
               );
             },
-            // padding: const EdgeInsets.all(8),
             scrollDirection: Axis.vertical,
-
             itemCount: 3,
           )),
     ]);
