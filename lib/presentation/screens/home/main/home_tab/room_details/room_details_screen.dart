@@ -148,51 +148,49 @@ class _RoomDetailsScreenState extends State<RoomDetailsScreen> {
                     ),
                   ),
                   Positioned(
-                    child: Positioned(
-                      top: 0,
-                      left: 0,
-                      right: 0,
-                      bottom: 0,
-                      child: Container(
-                        padding: paddingH20V25,
-                        decoration: BoxDecoration(
-                          borderRadius: circularRadius35,
-                          color: Colors.black.withOpacity(0.2),
-                        ),
-                        child: Column(
-                          crossAxisAlignment: CrossAxisAlignment.stretch,
-                          mainAxisAlignment: MainAxisAlignment.end,
-                          children: [
-                            Row(
-                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                              children: [
-                                Text(
-                                  "Slide $i",
-                                  style: ptSerifH3.copyWith(
+                    top: 0,
+                    left: 0,
+                    right: 0,
+                    bottom: 0,
+                    child: Container(
+                      padding: paddingH20V25,
+                      decoration: BoxDecoration(
+                        borderRadius: circularRadius35,
+                        color: Colors.black.withOpacity(0.2),
+                      ),
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.stretch,
+                        mainAxisAlignment: MainAxisAlignment.end,
+                        children: [
+                          Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            children: [
+                              Text(
+                                "Slide $i",
+                                style: ptSerifH3.copyWith(
+                                    color: RenteeColors.additional5),
+                              ),
+                            ],
+                          ),
+                          13.heightBox,
+                          Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            children: [
+                              Container(
+                                decoration: BoxDecoration(
+                                    border:
+                                        Border.all(color: RenteeColors.white),
+                                    borderRadius: circularRadius10),
+                                padding: paddingH14V6,
+                                child: Text(
+                                  "\$12.50/1 hour",
+                                  style: notoP3.copyWith(
                                       color: RenteeColors.additional5),
                                 ),
-                              ],
-                            ),
-                            13.heightBox,
-                            Row(
-                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                              children: [
-                                Container(
-                                  decoration: BoxDecoration(
-                                      border:
-                                          Border.all(color: RenteeColors.white),
-                                      borderRadius: circularRadius10),
-                                  padding: paddingH14V6,
-                                  child: Text(
-                                    "\$12.50/1 hour",
-                                    style: notoP3.copyWith(
-                                        color: RenteeColors.additional5),
-                                  ),
-                                ),
-                              ],
-                            ),
-                          ],
-                        ),
+                              ),
+                            ],
+                          ),
+                        ],
                       ),
                     ),
                   ),

@@ -49,64 +49,62 @@ class _BookingSliderWidgetState extends State<BookingSliderWidget> {
               ),
             ),
             Positioned(
-              child: Positioned(
-                top: 0,
-                left: 0,
-                right: 0,
-                bottom: 0,
-                child: Container(
-                  padding: paddingH20V25,
-                  decoration: BoxDecoration(
-                    borderRadius: circularRadius12,
-                    color: Colors.black.withOpacity(0.2),
-                  ),
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.stretch,
-                    mainAxisAlignment: MainAxisAlignment.end,
-                    children: [
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: [
-                          Text(
-                            "Slide $i",
-                            style: ptSerifH3.copyWith(
+              top: 0,
+              left: 0,
+              right: 0,
+              bottom: 0,
+              child: Container(
+                padding: paddingH20V25,
+                decoration: BoxDecoration(
+                  borderRadius: circularRadius12,
+                  color: Colors.black.withOpacity(0.2),
+                ),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.stretch,
+                  mainAxisAlignment: MainAxisAlignment.end,
+                  children: [
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        Text(
+                          "Slide $i",
+                          style: ptSerifH3.copyWith(
+                              color: RenteeColors.additional5),
+                        ),
+                        // RenteeAssets.icons.heart.svg(),
+                        FavoriteButton(
+                          isFavorite: false,
+                          iconDisabledColor: Colors.transparent,
+                          iconSize: 32.0,
+                          iconColor: RenteeColors.secondary,
+                          valueChanged: (_isFavorite) {},
+                        ),
+                      ],
+                    ),
+                    13.heightBox,
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        Container(
+                          decoration: BoxDecoration(
+                              border: Border.all(color: RenteeColors.white),
+                              borderRadius: circularRadius10),
+                          padding: paddingH14V6,
+                          child: Text(
+                            "\$12.50/1 hour",
+                            style: notoP3.copyWith(
                                 color: RenteeColors.additional5),
                           ),
-                          // RenteeAssets.icons.heart.svg(),
-                          FavoriteButton(
-                            isFavorite: false,
-                            iconDisabledColor: Colors.transparent,
-                            iconSize: 32.0,
-                            iconColor: RenteeColors.secondary,
-                            valueChanged: (_isFavorite) {},
-                          ),
-                        ],
-                      ),
-                      13.heightBox,
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: [
-                          Container(
-                            decoration: BoxDecoration(
-                                border: Border.all(color: RenteeColors.white),
-                                borderRadius: circularRadius10),
-                            padding: paddingH14V6,
-                            child: Text(
-                              "\$12.50/1 hour",
-                              style: notoP3.copyWith(
-                                  color: RenteeColors.additional5),
-                            ),
-                          ),
-                          // RenteeAssets.icons.heart.svg(),
-                          Text(
-                            "District 1",
-                            style: notoH5.copyWith(
-                                color: RenteeColors.additional7),
-                          ),
-                        ],
-                      ),
-                    ],
-                  ),
+                        ),
+                        // RenteeAssets.icons.heart.svg(),
+                        Text(
+                          "District 1",
+                          style:
+                              notoH5.copyWith(color: RenteeColors.additional7),
+                        ),
+                      ],
+                    ),
+                  ],
                 ),
               ),
             ),

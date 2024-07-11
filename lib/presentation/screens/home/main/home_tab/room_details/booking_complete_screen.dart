@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:rentee/presentation/screens/home/main/home_tab/home_screen.dart';
+import 'package:rentee/presentation/screens/home/tab_main_screen.dart';
 import 'package:uikit/uikit.dart';
 
 class BookingCompleteScreen extends StatelessWidget {
@@ -71,7 +72,7 @@ class BookingCompleteScreen extends StatelessWidget {
                           Navigator.pushAndRemoveUntil(
                               context,
                               MaterialPageRoute(
-                                  builder: (_) => const HomeScreen()),
+                                  builder: (_) => const TabMainScreen()),
                               (route) => false);
                         },
                       ),
