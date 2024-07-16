@@ -21,6 +21,7 @@ class InputTextExample extends StatefulWidget {
 class _InputTextExampleState extends State<InputTextExample> {
   int selectedValue = 0;
   bool val = false;
+  bool checkVal = false;
   String? selectedItem;
   onChanged() {
     (String? newValue) {

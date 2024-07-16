@@ -5,7 +5,6 @@ import 'package:uikit/uikit.dart';
 class RenteeToggle extends StatelessWidget {
   final bool value;
   final VoidCallback? onChanged;
-
   const RenteeToggle({super.key, required this.value, this.onChanged});
 
   @override
