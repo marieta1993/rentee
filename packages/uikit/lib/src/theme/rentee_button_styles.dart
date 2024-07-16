@@ -6,7 +6,7 @@ import 'rentee_text_styles.dart';
 
 ElevatedButtonThemeData get elevatedButtonThemeData => ElevatedButtonThemeData(
       style: ButtonStyle(
-        padding: MaterialStateProperty.all(paddingH16V24),
+        padding: MaterialStateProperty.all(paddingH16V8),
         foregroundColor: MaterialStateProperty.all(RenteeColors.white),
         shape: MaterialStateProperty.all(roundedBorder14),
         backgroundColor: MaterialStateProperty.all(RenteeColors.primary),

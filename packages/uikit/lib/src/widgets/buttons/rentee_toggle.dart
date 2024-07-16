@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
-import 'package:uikit/src/theme/rentee_border_styles.dart';
 import 'package:uikit/uikit.dart';
 
 class RenteeToggle extends StatelessWidget {
@@ -22,9 +21,7 @@ class RenteeToggle extends StatelessWidget {
             height: 24,
             decoration: BoxDecoration(
               borderRadius: borderRounded8,
-              color: value
-                  ? RenteeColors.primary
-                  : RenteeColors.additional5,
+              color: value ? RenteeColors.primary : RenteeColors.additional5,
             ),
             alignment: value ? Alignment.centerRight : Alignment.centerLeft,
             child: Align(

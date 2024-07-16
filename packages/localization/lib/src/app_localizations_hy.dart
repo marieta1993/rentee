@@ -6,4 +6,7 @@ class AppLocalizationsHy extends AppLocalizations {
 
   @override
   String get helloWorld => 'Բարև աշխարհ!';
+
+  @override
+  String get rentee => 'RENTEE';
 }
