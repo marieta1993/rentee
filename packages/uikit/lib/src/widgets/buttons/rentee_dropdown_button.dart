@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:uikit/src/theme/rentee_border_styles.dart';
 import 'package:uikit/uikit.dart';
 
 class RenteeDropdownButton extends StatefulWidget {

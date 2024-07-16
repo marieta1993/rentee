@@ -33,64 +33,70 @@ class _InputTextExampleState extends State<InputTextExample> {
 
   @override
   Widget build(BuildContext context) {
-    return SingleChildScrollView(
-      child: SafeArea(
-        child: Padding(
-          padding: const EdgeInsets.symmetric(vertical: 20.0, horizontal: 10),
-          child: Column(
-            children: [
-              const RenteeInputField(
-                label: 'Title here',
-              ),
-              RenteeInputField(
-                label: 'Title here',
-                icon: RenteeAssets.icons.search.svg(),
-              ),
-              const RenteeInputField.password(
-                label: 'Title here',
-              ),
-              RenteeDropdownButton(
-                label: 'Dropdown',
-                options: dropdownItems,
-                onChanged: onChanged,
-              ),
-              RenteeRadioButton(
-                value: 0,
-                option: 'Option 1',
-                selectedValue: selectedValue,
-                onChanged: (value) {
-                  setState(() {
-                    selectedValue = value;
-                  });
-                },
-              ),
-              RenteeRadioButton(
-                value: 1,
-                option: 'Option 2',
-                selectedValue: selectedValue,
-                onChanged: (value) {
-                  setState(() {
-                    selectedValue = value;
-                  });
-                },
-              ),
-              RenteeToggle(
-                value: val,
-                onChanged: () {
-                  setState(() {
-                    val = !val;
-                  });
-                },
-              ),
-              CheckBox(
-                checkValue: checkVal,
-                checkCallBack: (bool? newvalue) {
-                  setState(() {
-                    checkVal = newvalue!;
-                  });
-                },
-              )
-            ],
+    return Container(
+      color: Colors.amber,
+      child: SingleChildScrollView(
+        child: SafeArea(
+          child: Padding(
+            padding: const EdgeInsets.symmetric(vertical: 20.0, horizontal: 10),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.stretch,
+              children: [
+                const RenteeInputField(
+                  label: 'Title here',
+                ),
+                RenteeInputField(
+                  label: 'Title here',
+                  icon: RenteeAssets.icons.search.svg(),
+                ),
+                const RenteeInputField.password(
+                  label: 'Title here',
+                ),
+                RenteeDropdownButton(
+                  label: 'Dropdown',
+                  options: dropdownItems,
+                  onChanged: onChanged,
+                ),
+                const RenteePinPut(
+                  label: "Your code here",
+                ),
+                RenteeRadioButton(
+                  value: 0,
+                  option: 'Option 1',
+                  selectedValue: selectedValue,
+                  onChanged: (value) {
+                    setState(() {
+                      selectedValue = value;
+                    });
+                  },
+                ),
+                RenteeRadioButton(
+                  value: 1,
+                  option: 'Option 2',
+                  selectedValue: selectedValue,
+                  onChanged: (value) {
+                    setState(() {
+                      selectedValue = value;
+                    });
+                  },
+                ),
+                Switch.adaptive(
+                    value: val,
+                    onChanged: (a) {
+                      setState(() {
+                        val = a;
+                      });
+                    }),
+                RenteeToggle(
+                  value: val,
+                  onChanged: () {
+                    setState(() {
+                      val = !val;
+                    });
+                  },
+                ),
+              ],
+            ),
           ),
         ),
       ),

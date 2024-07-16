@@ -1,4 +1,3 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:uikit/uikit.dart';
 
@@ -60,6 +59,7 @@ class _BottomNavigationBarExampleAppState
       body: Center(
         child: _widgetOptions.elementAt(_selectedIndex),
       ),
+
       bottomNavigationBar: RenteeBottomNavigationBar(
         items: _tabItems,
         selectedIndex: _selectedIndex,

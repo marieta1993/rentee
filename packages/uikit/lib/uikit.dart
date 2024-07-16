@@ -13,6 +13,8 @@ export 'src/widgets/app_bar/app_bar.dart';
 
 export 'src/widgets/bottom_bar/bottom_navigation_bar.dart';
 export 'src/widgets/app_bar/app_bar.dart';
+export 'src/widgets/page_indicator/rentee_page_indicator.dart';
+export 'src/widgets/form_fields/rentee_pinput.dart';
 
 export 'src/assets/assets.gen.dart';
 export 'src/theme/rentee_main_theme.dart';
@@ -20,3 +22,4 @@ export 'src/assets/fonts.gen.dart';
 export 'src/theme/rentee_text_styles.dart';
 export 'src/theme/rentee_dimensions.dart';
 export 'src/theme/rentee_colors.dart';
+export 'src/theme/rentee_border_styles.dart';

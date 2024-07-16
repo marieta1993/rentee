@@ -8,14 +8,18 @@
 // ignore_for_file: directives_ordering,unnecessary_import,implicit_dynamic_list_literal,deprecated_member_use
 
 import 'package:flutter/widgets.dart';
-import 'package:flutter_svg/flutter_svg.dart';
 import 'package:flutter/services.dart';
+import 'package:flutter_svg/flutter_svg.dart';
+import 'package:vector_graphics/vector_graphics.dart';
 
 class $AssetsIconsGen {
   const $AssetsIconsGen();
 
   /// File path: assets/icons/All estate.svg
   SvgGenImage get allEstate => const SvgGenImage('assets/icons/All estate.svg');
+
+  /// File path: assets/icons/Back.svg
+  SvgGenImage get back => const SvgGenImage('assets/icons/Back.svg');
 
   /// File path: assets/icons/Bag.svg
   SvgGenImage get bag => const SvgGenImage('assets/icons/Bag.svg');
@@ -29,8 +33,11 @@ class $AssetsIconsGen {
   /// File path: assets/icons/Cleaning.svg
   SvgGenImage get cleaning => const SvgGenImage('assets/icons/Cleaning.svg');
 
+  /// File path: assets/icons/Combined Shape.svg
+  SvgGenImage get combinedShapeSvg => const SvgGenImage('assets/icons/Combined Shape.svg');
+
   /// File path: assets/icons/CombinedShape.svg
-  SvgGenImage get combinedShape => const SvgGenImage('assets/icons/CombinedShape.svg');
+  SvgGenImage get combinedShapeSvg_ => const SvgGenImage('assets/icons/CombinedShape.svg');
 
   /// File path: assets/icons/Cooking.svg
   SvgGenImage get cooking => const SvgGenImage('assets/icons/Cooking.svg');
@@ -46,6 +53,9 @@ class $AssetsIconsGen {
 
   /// File path: assets/icons/Filter.svg
   SvgGenImage get filter => const SvgGenImage('assets/icons/Filter.svg');
+
+  /// File path: assets/icons/Group 1.svg
+  SvgGenImage get group1 => const SvgGenImage('assets/icons/Group 1.svg');
 
   /// File path: assets/icons/Heart.svg
   SvgGenImage get heart => const SvgGenImage('assets/icons/Heart.svg');
@@ -74,6 +84,9 @@ class $AssetsIconsGen {
   /// File path: assets/icons/Search.svg
   SvgGenImage get search => const SvgGenImage('assets/icons/Search.svg');
 
+  /// File path: assets/icons/Selected.svg
+  SvgGenImage get selected => const SvgGenImage('assets/icons/Selected.svg');
+
   /// File path: assets/icons/Show.svg
   SvgGenImage get show => const SvgGenImage('assets/icons/Show.svg');
 
@@ -89,6 +102,15 @@ class $AssetsIconsGen {
   /// File path: assets/icons/Transfer.svg
   SvgGenImage get transfer => const SvgGenImage('assets/icons/Transfer.svg');
 
+  /// File path: assets/icons/Unselected.png
+  AssetGenImage get unselectedPng => const AssetGenImage('assets/icons/Unselected.png');
+
+  /// File path: assets/icons/Unselected.svg
+  SvgGenImage get unselectedSvg => const SvgGenImage('assets/icons/Unselected.svg');
+
+  /// File path: assets/icons/Vector.svg
+  SvgGenImage get vector => const SvgGenImage('assets/icons/Vector.svg');
+
   /// File path: assets/icons/Zoom.svg
   SvgGenImage get zoom => const SvgGenImage('assets/icons/Zoom.svg');
 
@@ -101,6 +123,15 @@ class $AssetsIconsGen {
   /// File path: assets/icons/gear.svg
   SvgGenImage get gear => const SvgGenImage('assets/icons/gear.svg');
 
+  /// File path: assets/icons/heart_selected.png
+  AssetGenImage get heartSelected => const AssetGenImage('assets/icons/heart_selected.png');
+
+  /// File path: assets/icons/heart_unselected.svg
+  SvgGenImage get heartUnselected => const SvgGenImage('assets/icons/heart_unselected.svg');
+
+  /// File path: assets/icons/home_unselected.svg
+  SvgGenImage get homeUnselected => const SvgGenImage('assets/icons/home_unselected.svg');
+
   /// File path: assets/icons/personal.svg
   SvgGenImage get personal => const SvgGenImage('assets/icons/personal.svg');
 
@@ -108,18 +139,21 @@ class $AssetsIconsGen {
   SvgGenImage get support => const SvgGenImage('assets/icons/support.svg');
 
   /// List of all assets
-  List<SvgGenImage> get values => [
+  List<dynamic> get values => [
         allEstate,
+        back,
         bag,
         bathroom,
         bedroom,
         cleaning,
-        combinedShape,
+        combinedShapeSvg,
+        combinedShapeSvg_,
         cooking,
         creditCard,
         date,
         elevator,
         filter,
+        group1,
         heart,
         hide,
         hotWater,
@@ -129,17 +163,68 @@ class $AssetsIconsGen {
         paypal,
         policy,
         search,
+        selected,
         show,
         signOut,
         star,
         time,
         transfer,
+        unselectedPng,
+        unselectedSvg,
+        vector,
         zoom,
         crown,
         dropdown,
         gear,
+        heartSelected,
+        heartUnselected,
+        homeUnselected,
         personal,
         support
+      ];
+}
+
+class $AssetsImagesGen {
+  const $AssetsImagesGen();
+
+  /// File path: assets/images/Frame.svg
+  SvgGenImage get frame => const SvgGenImage('assets/images/Frame.svg');
+
+  /// File path: assets/images/Shield Done.svg
+  SvgGenImage get shieldDone => const SvgGenImage('assets/images/Shield Done.svg');
+
+  /// File path: assets/images/booking_complete.png
+  AssetGenImage get bookingComplete => const AssetGenImage('assets/images/booking_complete.png');
+
+  /// File path: assets/images/booking_empty.png
+  AssetGenImage get bookingEmpty => const AssetGenImage('assets/images/booking_empty.png');
+
+  /// File path: assets/images/bottom_bg.svg
+  SvgGenImage get bottomBg => const SvgGenImage('assets/images/bottom_bg.svg');
+
+  /// File path: assets/images/bottom_bg1.png
+  AssetGenImage get bottomBg1 => const AssetGenImage('assets/images/bottom_bg1.png');
+
+  /// File path: assets/images/onboarding_1.jpg
+  AssetGenImage get onboarding1 => const AssetGenImage('assets/images/onboarding_1.jpg');
+
+  /// File path: assets/images/onboarding_2.jpg
+  AssetGenImage get onboarding2 => const AssetGenImage('assets/images/onboarding_2.jpg');
+
+  /// File path: assets/images/onboarding_3.jpg
+  AssetGenImage get onboarding3 => const AssetGenImage('assets/images/onboarding_3.jpg');
+
+  /// List of all assets
+  List<dynamic> get values => [
+        frame,
+        shieldDone,
+        bookingComplete,
+        bookingEmpty,
+        bottomBg,
+        bottomBg1,
+        onboarding1,
+        onboarding2,
+        onboarding3
       ];
 }
 
@@ -149,14 +234,104 @@ class RenteeAssets {
   static const String package = 'uikit';
 
   static const $AssetsIconsGen icons = $AssetsIconsGen();
+  static const $AssetsImagesGen images = $AssetsImagesGen();
 }
 
-class SvgGenImage {
-  const SvgGenImage(this._assetName);
+class AssetGenImage {
+  const AssetGenImage(this._assetName, {this.size = null});
 
   final String _assetName;
 
   static const String package = 'uikit';
+
+  final Size? size;
+
+  Image image({
+    Key? key,
+    AssetBundle? bundle,
+    ImageFrameBuilder? frameBuilder,
+    ImageErrorWidgetBuilder? errorBuilder,
+    String? semanticLabel,
+    bool excludeFromSemantics = false,
+    double? scale,
+    double? width,
+    double? height,
+    Color? color,
+    Animation<double>? opacity,
+    BlendMode? colorBlendMode,
+    BoxFit? fit,
+    AlignmentGeometry alignment = Alignment.center,
+    ImageRepeat repeat = ImageRepeat.noRepeat,
+    Rect? centerSlice,
+    bool matchTextDirection = false,
+    bool gaplessPlayback = false,
+    bool isAntiAlias = false,
+    @Deprecated('Do not specify package for a generated library asset') String? package = package,
+    FilterQuality filterQuality = FilterQuality.low,
+    int? cacheWidth,
+    int? cacheHeight,
+  }) {
+    return Image.asset(
+      _assetName,
+      key: key,
+      bundle: bundle,
+      frameBuilder: frameBuilder,
+      errorBuilder: errorBuilder,
+      semanticLabel: semanticLabel,
+      excludeFromSemantics: excludeFromSemantics,
+      scale: scale,
+      width: width,
+      height: height,
+      color: color,
+      opacity: opacity,
+      colorBlendMode: colorBlendMode,
+      fit: fit,
+      alignment: alignment,
+      repeat: repeat,
+      centerSlice: centerSlice,
+      matchTextDirection: matchTextDirection,
+      gaplessPlayback: gaplessPlayback,
+      isAntiAlias: isAntiAlias,
+      package: package,
+      filterQuality: filterQuality,
+      cacheWidth: cacheWidth,
+      cacheHeight: cacheHeight,
+    );
+  }
+
+  ImageProvider provider({
+    AssetBundle? bundle,
+    @Deprecated('Do not specify package for a generated library asset') String? package = package,
+  }) {
+    return AssetImage(
+      _assetName,
+      bundle: bundle,
+      package: package,
+    );
+  }
+
+  String get path => _assetName;
+
+  String get keyName => 'packages/uikit/$_assetName';
+}
+
+class SvgGenImage {
+  const SvgGenImage(
+    this._assetName, {
+    this.size = null,
+  }) : _isVecFormat = false;
+
+  const SvgGenImage.vec(
+    this._assetName, {
+    this.size = null,
+  }) : _isVecFormat = true;
+
+  final String _assetName;
+
+  static const String package = 'uikit';
+
+  final Size? size;
+  final bool _isVecFormat;
 
   SvgPicture svg({
     Key? key,
@@ -171,19 +346,19 @@ class SvgGenImage {
     WidgetBuilder? placeholderBuilder,
     String? semanticsLabel,
     bool excludeFromSemantics = false,
-    SvgTheme theme = const SvgTheme(),
+    SvgTheme? theme,
     ColorFilter? colorFilter,
     Clip clipBehavior = Clip.hardEdge,
     @deprecated Color? color,
     @deprecated BlendMode colorBlendMode = BlendMode.srcIn,
     @deprecated bool cacheColorFilter = false,
   }) {
-    return SvgPicture.asset(
-      _assetName,
+    return SvgPicture(
+      _isVecFormat
+          ? AssetBytesLoader(_assetName, assetBundle: bundle, packageName: package)
+          : SvgAssetLoader(_assetName, assetBundle: bundle, packageName: package),
       key: key,
       matchTextDirection: matchTextDirection,
-      bundle: bundle,
-      package: package,
       width: width,
       height: height,
       fit: fit,
@@ -193,9 +368,7 @@ class SvgGenImage {
       semanticsLabel: semanticsLabel,
       excludeFromSemantics: excludeFromSemantics,
       theme: theme,
-      colorFilter: colorFilter,
-      color: color,
-      colorBlendMode: colorBlendMode,
+      colorFilter: colorFilter ?? (color == null ? null : ColorFilter.mode(color, colorBlendMode)),
       clipBehavior: clipBehavior,
       cacheColorFilter: cacheColorFilter,
     );

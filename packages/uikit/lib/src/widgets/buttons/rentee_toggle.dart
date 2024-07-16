@@ -1,60 +1,44 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
-import 'package:uikit/src/theme/rentee_border_styles.dart';
-import 'package:uikit/src/theme/rentee_colors.dart';
 import 'package:uikit/uikit.dart';
 
-class RenteeToggle extends StatefulWidget {
- final bool value;
- final VoidCallback? onChanged;
-
+class RenteeToggle extends StatelessWidget {
+  final bool value;
+  final VoidCallback? onChanged;
   const RenteeToggle({super.key, required this.value, this.onChanged});
 
   @override
-  State<RenteeToggle> createState() => _RenteeToggleState();
-}
-
-class _RenteeToggleState extends State<RenteeToggle> {
-  @override
   Widget build(BuildContext context) {
-    return Center(
-      child: Column(
-        children: [
-          Container(
+    return Row(
+      mainAxisSize: MainAxisSize.min,
+      children: [
+        GestureDetector(
+          onTap: onChanged,
+          child: Container(
+            clipBehavior: Clip.hardEdge,
             width: 40,
             height: 24,
             decoration: BoxDecoration(
               borderRadius: borderRounded8,
-              color: widget.value
-                  ? RenteeColors.additional5
-                  : RenteeColors.primary,
+              color: value ? RenteeColors.primary : RenteeColors.additional5,
             ),
-            child: Stack(
-              children: [
-                Positioned(
-                  left: widget.value ? 15.0 : 0.0,
-                  child: GestureDetector(
-                    onTap: widget.onChanged,
-                    child: Padding(
-                      padding: paddingAll4,
-                      child: ClipRRect(
-                        borderRadius: borderRounded8,
-                        child: Container(
-                          width: 16.0,
-                          height: 16.0,
-                          color: widget.value
-                              ? RenteeColors.additional4
-                              : RenteeColors.additional5,
-                        ),
-                      ),
-                    ),
-                  ),
+            alignment: value ? Alignment.centerRight : Alignment.centerLeft,
+            child: Align(
+              alignment: Alignment.topLeft,
+              child: Container(
+                margin: paddingAll4,
+                decoration: BoxDecoration(
+                  borderRadius: borderRounded4,
+                  color: value
+                      ? RenteeColors.additional5
+                      : RenteeColors.additional4,
                 ),
-              ],
+                width: 16.0,
+              ),
             ),
           ),
-        ],
-      ),
+        ),
+      ],
     );
   }
 }
