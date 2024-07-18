@@ -3,8 +3,10 @@ import 'package:pinput/pinput.dart';
 import 'package:uikit/uikit.dart';
 
 class RenteePinPut extends StatefulWidget {
-  const RenteePinPut({super.key, this.label});
+  const RenteePinPut({super.key, this.label, this.controller});
   final String? label;
+  final TextEditingController? controller;
+  final int length = 6;
 
   @override
   State<RenteePinPut> createState() => _RenteePinPutState();
@@ -12,12 +14,10 @@ class RenteePinPut extends StatefulWidget {
 
 class _RenteePinPutState extends State<RenteePinPut> {
   @override
-  final controller = TextEditingController();
   final focusNode = FocusNode();
 
   @override
   void dispose() {
-    controller.dispose();
     focusNode.dispose();
     super.dispose();
   }
@@ -26,7 +26,6 @@ class _RenteePinPutState extends State<RenteePinPut> {
 
   @override
   Widget build(BuildContext context) {
-    const length = 4;
     const borderColor = Color.fromRGBO(114, 178, 238, 1);
     const errorColor = Color.fromRGBO(255, 234, 238, 1);
     final defaultPinTheme = PinTheme(
@@ -53,8 +52,8 @@ class _RenteePinPutState extends State<RenteePinPut> {
         child: Pinput(
           // crossAxisAlignment: CrossAxisAlignment.stretch,
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          length: length,
-          controller: controller,
+          length: widget.length,
+          controller: widget.controller,
           focusNode: focusNode,
           defaultPinTheme: defaultPinTheme,
           onCompleted: (pin) {

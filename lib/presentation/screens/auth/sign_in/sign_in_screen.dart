@@ -1,6 +1,7 @@
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import 'package:rentee/controllers/auth_service.dart';
 import 'package:rentee/presentation/screens/auth/auth_layout.dart';
 import 'package:rentee/presentation/screens/auth/auth_provider.dart';
 import 'package:rentee/presentation/screens/auth/reset/reset_screen.dart';
@@ -16,7 +17,8 @@ class SignInScreen extends StatelessWidget with Validator {
   @override
   Widget build(BuildContext context) {
     AuthLayoutData signInData = AuthLayoutData(
-      mainContent: Consumer<AuthProvider>(builder: (context, provider, _) {
+      mainContent:
+          Consumer<AuthCustomProvider>(builder: (context, provider, _) {
         return Form(
           key: provider.formSignInKey,
           child: Column(
@@ -24,15 +26,16 @@ class SignInScreen extends StatelessWidget with Validator {
               RenteeInputField(
                 controller: provider.phoneNumberController,
                 validator: phoneNumberValidation,
-                placeholder: "Your phone number here",
+                keyboardType: TextInputType.phone,
+                placeholder: "E.g +37498123456",
                 label: "Phone number",
               ),
-              20.heightBox,
-              RenteeInputField.password(
-                controller: provider.passwordController,
-                validator: passwordValidation,
-                label: "Password",
-              ),
+              // 20.heightBox,
+              // RenteeInputField.password(
+              //   controller: provider.passwordController,
+              //   validator: passwordValidation,
+              //   label: "Password",
+              // ),
               20.heightBox,
               Align(
                 alignment: Alignment.centerLeft,
@@ -56,13 +59,29 @@ class SignInScreen extends StatelessWidget with Validator {
                 onPress: () async {
                   // final prefs = await SharedPreferences.getInstance();
                   // prefs.setBool('firstLaunch', true);
-                  provider.signInAction();
-                  Navigator.pushReplacement(
-                    context,
-                    MaterialPageRoute(
-                      builder: (_) => const VerificationScreen(),
-                    ),
-                  );
+                  if (provider.signInAction()) {
+                    AuthService.sentOtp(
+                      phone: int.parse(provider.phoneNumberController.text),
+                      errorStep: () {
+                        ScaffoldMessenger.of(context)
+                            .showSnackBar(const SnackBar(
+                          content: Text(
+                            "Error in sending Otp",
+                            style: TextStyle(color: RenteeColors.white),
+                          ),
+                          backgroundColor: Colors.red,
+                        ));
+                      },
+                      nextStep: () {
+                        Navigator.pushReplacement(
+                          context,
+                          MaterialPageRoute(
+                            builder: (_) => const VerificationScreen(),
+                          ),
+                        );
+                      },
+                    );
+                  }
                 },
               ),
               15.heightBox,
