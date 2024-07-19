@@ -5,7 +5,7 @@ import 'package:rentee/controllers/auth_service.dart';
 import 'package:rentee/presentation/screens/auth/auth_layout.dart';
 import 'package:rentee/presentation/screens/auth/auth_provider.dart';
 import 'package:rentee/presentation/screens/auth/reset/reset_screen.dart';
-import 'package:rentee/presentation/screens/auth/sign_up/sign_up_screen.dart';
+import 'package:rentee/presentation/screens/auth/user_details/user_details_screen.dart';
 import 'package:rentee/presentation/screens/auth/verification/verification_screen.dart';
 import 'package:rentee/utils/extensions/context_localization.dart';
 import 'package:rentee/utils/validators/validators.dart';
@@ -30,32 +30,9 @@ class SignInScreen extends StatelessWidget with Validator {
                 placeholder: "E.g +37498123456",
                 label: "Phone number",
               ),
-              // 20.heightBox,
-              // RenteeInputField.password(
-              //   controller: provider.passwordController,
-              //   validator: passwordValidation,
-              //   label: "Password",
-              // ),
-              20.heightBox,
-              Align(
-                alignment: Alignment.centerLeft,
-                child: InkWell(
-                  child: Text(
-                    "Forgot you password",
-                    style: notoH5.copyWith(color: RenteeColors.primary),
-                    textAlign: TextAlign.left,
-                  ),
-                  onTap: () {
-                    Navigator.pushReplacement(
-                      context,
-                      MaterialPageRoute(builder: (_) => const ResetScreen()),
-                    );
-                  },
-                ),
-              ),
               20.heightBox,
               RenteeElevatedButton(
-                text: "Sign in",
+                text: "Send otp",
                 onPress: () async {
                   // final prefs = await SharedPreferences.getInstance();
                   // prefs.setBool('firstLaunch', true);
@@ -85,26 +62,26 @@ class SignInScreen extends StatelessWidget with Validator {
                 },
               ),
               15.heightBox,
-              RichText(
-                  text: TextSpan(
-                text: "Don’t have an account?",
-                style: notoP3.copyWith(color: RenteeColors.additional3),
-                children: <TextSpan>[
-                  TextSpan(
-                      text: " Sign up ",
-                      style: notoH5.copyWith(color: RenteeColors.primary),
-                      recognizer: TapGestureRecognizer()
-                        ..onTap = () {
-                          Navigator.pushReplacement(
-                            context,
-                            MaterialPageRoute(
-                              builder: (_) => const SignUpScreen(),
-                            ),
-                          );
-                        }),
-                ],
-              )),
-              15.heightBox,
+              // RichText(
+              //     text: TextSpan(
+              //   text: "Don’t have an account?",
+              //   style: notoP3.copyWith(color: RenteeColors.additional3),
+              //   children: <TextSpan>[
+              //     TextSpan(
+              //         text: " Sign up ",
+              //         style: notoH5.copyWith(color: RenteeColors.primary),
+              //         recognizer: TapGestureRecognizer()
+              //           ..onTap = () {
+              //             Navigator.pushReplacement(
+              //               context,
+              //               MaterialPageRoute(
+              //                 builder: (_) => const UserDetailsScreen(),
+              //               ),
+              //             );
+              //           }),
+              //   ],
+              // )),
+              // 15.heightBox,
             ],
           ),
         );

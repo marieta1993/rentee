@@ -72,9 +72,11 @@ class _HomeScreenState extends State<HomeScreen> {
 
   getCurrentAddress() async {
     _currentPosition = await LocationHandler.getCurrentPosition();
-    _currentAddress =
-        (await LocationHandler.getAddressFromLatLng(_currentPosition!))!;
-    setState(() {});
+    var addr = (await LocationHandler.getAddressFromLatLng(_currentPosition!))!;
+
+    setState(() {
+      _currentAddress = addr;
+    });
   }
 
   getCurrentUserData() async {
@@ -85,7 +87,7 @@ class _HomeScreenState extends State<HomeScreen> {
   }
 
   logout() async {
-    context.read<FirebaseAuth>().signOut();
+    context.read<AuthCustomProvider>().logout();
   }
 
   @override

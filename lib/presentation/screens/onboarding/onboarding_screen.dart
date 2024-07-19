@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:rentee/presentation/screens/auth/sign_in/sign_in_screen.dart';
-import 'package:rentee/presentation/screens/auth/sign_up/sign_up_screen.dart';
+import 'package:rentee/presentation/screens/auth/user_details/user_details_screen.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:uikit/uikit.dart';
 import 'package:rentee/data/models/onboarding_data/onboarding_data_model.dart';
@@ -21,17 +21,17 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
     OnboardingData(
         title: "Choose from a thousand of places",
         description:
-            "We provide you with a variant of accomodation for a better choice",
+            "We provide you with a variant of accommodation for a better choice",
         img: RenteeAssets.images.onboarding1.provider()),
     OnboardingData(
-        title: "Well-selected accomodation",
+        title: "Well-selected accommodation",
         description:
-            "We provide you with a variant of accomodation for a better choice",
+            "We provide you with a variant of accommodation for a better choice",
         img: RenteeAssets.images.onboarding2.provider()),
     OnboardingData(
         title: "Cool and secure service",
         description:
-            "We provide you with a variant of accomodation for a better choice",
+            "We provide you with a variant of accommodation for a better choice",
         img: RenteeAssets.images.onboarding3.provider()),
   ];
 
@@ -177,7 +177,7 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
     prefs.setBool('firstLaunch', false);
     Navigator.pushReplacement(
       context,
-      MaterialPageRoute(builder: (_) => const SignUpScreen()),
+      MaterialPageRoute(builder: (_) => const SignInScreen()),
     );
   }
 
@@ -185,7 +185,7 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
     if (index == pagesData.length - 1) {
       Navigator.pushReplacement(
         context,
-        MaterialPageRoute(builder: (_) => const SignUpScreen()),
+        MaterialPageRoute(builder: (_) => const SignInScreen()),
       );
     } else {
       setState(() {
