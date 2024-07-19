@@ -1,3 +1,5 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
@@ -5,57 +7,68 @@ import 'package:rentee/presentation/screens/auth/auth_layout.dart';
 import 'package:rentee/presentation/screens/auth/auth_provider.dart';
 import 'package:rentee/presentation/screens/auth/sign_in/sign_in_screen.dart';
 import 'package:rentee/presentation/screens/auth/verification/verification_screen.dart';
+import 'package:rentee/presentation/screens/home/tab_main_screen.dart';
 import 'package:rentee/utils/extensions/context_localization.dart';
 import 'package:rentee/utils/validators/validators.dart';
 import 'package:uikit/uikit.dart';
 
-class SignUpScreen extends StatefulWidget {
-  const SignUpScreen({super.key});
+class UserDetailsScreen extends StatefulWidget with Validator {
+  const UserDetailsScreen({super.key});
 
   @override
-  State<SignUpScreen> createState() => _SignUpScreenState();
+  State<UserDetailsScreen> createState() => _UserDetailsScreenState();
 }
 
-class _SignUpScreenState extends State<SignUpScreen> with Validator {
+class _UserDetailsScreenState extends State<UserDetailsScreen> with Validator {
   @override
   Widget build(BuildContext context) {
     AuthLayoutData signUpData = AuthLayoutData(
-      mainContent: Consumer<AuthProvider>(builder: (context, provider, _) {
+      mainContent:
+          Consumer<AuthCustomProvider>(builder: (context, provider, _) {
         return Form(
           key: provider.formSignUpKey,
           child: Column(
             children: [
               RenteeInputField(
-                controller: provider.fullNameController,
+                controller: provider.firstNameController,
                 validator: fullNameValidation,
-                placeholder: "Your full name",
-                label: "E.g. John Smith",
+                placeholder: "Your first name",
+                label: "E.g. John ",
               ),
               20.heightBox,
               RenteeInputField(
-                validator: phoneNumberValidation,
-                controller: provider.phoneNumberController,
-                keyboardType: TextInputType.phone,
-                placeholder: "Your phone number here",
-                label: "Phone number",
+                controller: provider.lastNameController,
+                validator: fullNameValidation,
+                placeholder: "Your last name",
+                label: "E.g. Smith",
               ),
-              20.heightBox,
-              RenteeInputField.password(
-                controller: provider.passwordController,
-                validator: passwordValidation,
-                label: "Password",
-              ),
-              20.heightBox,
+              // RenteeInputField(
+              //   validator: phoneNumberValidation,
+              //   controller: provider.phoneNumberController,
+              //   keyboardType: TextInputType.phone,
+              //   placeholder: "Your phone number here",
+              //   label: "Phone number",
+              // ),
+              // 20.heightBox,
+              // RenteeInputField.password(
+              //   controller: provider.passwordController,
+              //   validator: passwordValidation,
+              //   label: "Password",
+              // ),
+              // 20.heightBox,
               RenteeElevatedButton(
-                text: "Sign up",
+                text: "Next",
                 onPress: () {
-                  provider.signUpAction();
-                  Navigator.pushReplacement(
-                    context,
-                    MaterialPageRoute(
-                      builder: (_) => const VerificationScreen(),
-                    ),
-                  );
+                  if (provider.formSignUpKey.currentState!.validate()) {
+                    print("hiiiiiiiiiiiiiiiiiiiii");
+                    provider.saveUserDetails();
+                    Navigator.pushReplacement(
+                      context,
+                      MaterialPageRoute(
+                        builder: (_) => const TabMainScreen(),
+                      ),
+                    );
+                  }
                 },
               ),
               15.heightBox,
