@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:rentee/presentation/screens/auth/sign_in/sign_in_screen.dart';
-import 'package:rentee/presentation/screens/auth/user_details/user_details_screen.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:uikit/uikit.dart';
 import 'package:rentee/data/models/onboarding_data/onboarding_data_model.dart';

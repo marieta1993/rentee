@@ -52,6 +52,13 @@ dependencies:
   material_segmented_control: ^5.0.1
   firebase_auth: ^5.1.2
   cloud_firestore: ^5.1.0
+  dio: ^5.5.0+1
+  retrofit: ^4.1.0
+  retrofit_generator: ^8.1.2
+  build_runner: ^2.4.9
+  json_annotation: ^4.9.0
+  json_serializable: ^6.8.0
+  built_value: ^8.9.2
 
 dev_dependencies:
   flutter_test:

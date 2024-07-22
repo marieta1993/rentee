@@ -1,5 +1,11 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:provider/provider.dart';
+import 'package:rentee/data/models/room/room_model.dart';
+import 'package:rentee/presentation/screens/home/main/home_tab/room_details/room_details_screen.dart';
+import 'package:rentee/presentation/screens/home/room_provider.dart';
+import 'package:rentee/presentation/screens/widgets/card_big_room_item.dart';
 import 'package:uikit/uikit.dart';
 
 class PickedForYou extends StatelessWidget {
@@ -7,130 +13,88 @@ class PickedForYou extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Column(crossAxisAlignment: CrossAxisAlignment.stretch, children: [
-      Padding(
-        padding: paddingH32V20,
-        child: Text(
-          "Picked for you",
-          textAlign: TextAlign.left,
-          style: notoH3.copyWith(
-            color: RenteeColors.additional1,
-            fontWeight: FontWeight.w700,
-          ),
-        ),
-      ),
-      Container(
-          margin: paddingL24,
-          height: 285.sp,
-          child: ListView.builder(
-            itemBuilder: (context, index) {
-              return Container(
-                width: 240.sp,
-                margin: paddingR20,
-                decoration: BoxDecoration(
-                  border: Border.all(color: Colors.transparent),
-                  borderRadius: circularRadius15,
-                  color: RenteeColors.additional6,
-                ),
-                child: Padding(
-                  padding: paddingAll10,
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.stretch,
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    mainAxisSize: MainAxisSize.min,
-                    children: [
-                      ClipRRect(
-                        borderRadius: circularRadius15,
-                        child: Image.network(
-                          "https://images.unsplash.com/flagged/photo-1590227000970-3ae55d48501e?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-                          fit: BoxFit.fitHeight,
-                          width: 215.sp,
-                          height: 147.sp,
-                        ),
-                      ),
-                      15.heightBox,
-                      Flexible(
-                        child: Text(
-                          'Minimalism Room',
-                          maxLines: 1,
-                          textAlign: TextAlign.left,
-                          overflow: TextOverflow.ellipsis,
-                          style: ptSerifH5.copyWith(
-                              color: RenteeColors.additional1),
-                        ),
-                      ),
-                      10.heightBox,
-                      Row(
-                        crossAxisAlignment: CrossAxisAlignment.center,
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        mainAxisSize: MainAxisSize.min,
-                        children: [
-                          Container(
-                            decoration: BoxDecoration(
-                                border:
-                                    Border.all(color: RenteeColors.additional1),
-                                borderRadius: circularRadius10),
-                            padding: paddingH14V6,
-                            child: Text(
-                              "\$12.50/1 hour",
-                              style: notoP3.copyWith(
-                                  color: RenteeColors.additional1),
-                            ),
-                          ),
-                          // RenteeAssets.icons.heart.svg(),
-                          Text(
-                            "Phu Nhuan",
-                            style: notoH5.copyWith(
-                              color: RenteeColors.additional1,
-                              fontWeight: FontWeight.w700,
-                            ),
-                          ),
-                        ],
-                      ),
-                      10.heightBox,
-                      Row(
-                          mainAxisSize: MainAxisSize.max,
-                          crossAxisAlignment: CrossAxisAlignment.center,
-                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                          children: [
-                            Row(
-                              mainAxisAlignment: MainAxisAlignment.center,
-                              mainAxisSize: MainAxisSize.min,
-                              crossAxisAlignment: CrossAxisAlignment.center,
-                              children: [
-                                RenteeAssets.icons.bedroom.svg(),
-                                const Text('1'),
-                              ],
-                            ),
-                            Row(
-                              mainAxisAlignment: MainAxisAlignment.center,
-                              mainAxisSize: MainAxisSize.min,
-                              crossAxisAlignment: CrossAxisAlignment.center,
-                              children: [
-                                RenteeAssets.icons.bathroom.svg(),
-                                10.horizontalSpace,
-                                const Text('1'),
-                              ],
-                            ),
-                            Row(
-                              mainAxisAlignment: MainAxisAlignment.center,
-                              mainAxisSize: MainAxisSize.min,
-                              crossAxisAlignment: CrossAxisAlignment.center,
-                              children: [
-                                RenteeAssets.icons.star.svg(),
-                                10.horizontalSpace,
-                                const Text('5.0'),
-                              ],
-                            ),
-                          ]),
-                    ],
+    return StreamBuilder<QuerySnapshot>(
+        stream: context.read<RoomProvider>().allRoomsList(),
+        builder: (context, snapshot) {
+          if (snapshot.connectionState == ConnectionState.waiting) {
+            return const Center(child: CircularProgressIndicator());
+          }
+          if (!snapshot.hasData) {
+            return const Center(child: Text('No data'));
+          }
+
+          List<RoomModel> roomsList = snapshot.data!.docs.map((doc) {
+            return RoomModel.fromDocument(doc);
+          }).toList();
+
+          return Column(
+              crossAxisAlignment: CrossAxisAlignment.stretch,
+              children: [
+                Padding(
+                  padding: paddingH32V20,
+                  child: Text(
+                    "Picked for you",
+                    textAlign: TextAlign.left,
+                    style: notoH3.copyWith(
+                      color: RenteeColors.additional1,
+                      fontWeight: FontWeight.w700,
+                    ),
                   ),
                 ),
-              );
-            },
-            padding: paddingAll8,
-            scrollDirection: Axis.horizontal,
-          )),
-    ]);
+                Container(
+                    margin: paddingL24,
+                    height: 285.sp,
+                    child: ListView.builder(
+                      itemBuilder: (context, index) {
+                        RoomModel room = roomsList[index];
+
+                        return FutureBuilder<String?>(
+                            future: context.read<RoomProvider>().getRoomAddress(
+                                  room.address.latitude,
+                                  room.address.longitude,
+                                ),
+                            builder: (context, addressSnapshot) {
+                              if (addressSnapshot.connectionState ==
+                                  ConnectionState.waiting) {
+                                return const Center(
+                                    child: CircularProgressIndicator());
+                              }
+
+                              if (addressSnapshot.hasError) {
+                                return Center(
+                                    child: Text(
+                                        'Error: ${addressSnapshot.error}'));
+                              }
+
+                              if (!addressSnapshot.hasData ||
+                                  addressSnapshot.data == null) {
+                                return const Center(child: Text('No address'));
+                              }
+                              return CardBigRoomItem(
+                                  itemTitle: room.title,
+                                  itemPrice:
+                                      double.parse(room.price.toString()),
+                                  itemBathCount: room.bathCount,
+                                  itemBedCount: room.bedCount,
+                                  itemLocation: addressSnapshot.data!,
+                                  itemRating: room.rating,
+                                  imgSrc: room.imgUrl.isNotEmpty
+                                      ? room.imgUrl[0]
+                                      : '',
+                                  onItemClick: () {
+                                    onItemClick(context, room.id);
+                                  });
+                            });
+                      },
+                      padding: paddingAll8,
+                      scrollDirection: Axis.horizontal,
+                      itemCount: roomsList.length,
+                    )),
+              ]);
+        });
+  }
+
+  void onItemClick(BuildContext context, String roomId) {
+    context.read<RoomProvider>().onItemClick(context, roomId);
   }
 }

@@ -49,4 +49,15 @@ abstract class LocationHandler {
       return null;
     }
   }
+
+  static Future<String?> getAddressOnlyFromLatLng(
+      double lat, double long) async {
+    try {
+      List<Placemark> placeMarks = await placemarkFromCoordinates(lat, long);
+      Placemark place = placeMarks[0];
+      return " ${place.country}";
+    } catch (e) {
+      return null;
+    }
+  }
 }

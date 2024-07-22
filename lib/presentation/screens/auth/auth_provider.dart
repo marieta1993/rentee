@@ -84,4 +84,9 @@ class AuthCustomProvider extends ChangeNotifier {
     await _auth.signOut();
     reset();
   }
+
+  Future<bool> isLoggedIn() async {
+    var user = _auth.currentUser;
+    return user != null;
+  }
 }

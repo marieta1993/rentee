@@ -30,21 +30,6 @@ class SearchToolBar extends StatelessWidget implements PreferredSizeWidget {
             placeholder: ("Looking for room"),
             icon: RenteeAssets.icons.search.svg(),
           )),
-          // SizedBox(
-          //   width: 14.sp,
-          // ),
-          // RenteeIconButton.filled(
-          //   onPress: () {},
-          //   icon: Padding(
-          //     padding: REdgeInsetsDirectional.all(4),
-          //     child: RenteeAssets.icons.group1.svg(
-          //       width: 24,
-          //       height: 24,
-          //       colorFilter:
-          //           const ColorFilter.mode(RenteeColors.white, BlendMode.srcIn),
-          //     ),
-          //   ),
-          // )
         ],
       ),
     );

@@ -13,7 +13,7 @@ class HomeScreenTabMain extends StatefulWidget {
 }
 
 class _HomeScreenTabMainState extends State<HomeScreenTabMain> {
-  final int _sliding = 0;
+  int _sliding = 0;
   final Color thumbTextColor = RenteeColors.additional3;
   final _children = const {
     0: Text("All", style: TextStyle(color: RenteeColors.additional3)),
@@ -42,10 +42,22 @@ class _HomeScreenTabMainState extends State<HomeScreenTabMain> {
             borderRadius: circularRadius15,
           ),
 
-          onValueChanged: (v) {},
+          onValueChanged: (v) {
+            setState(() {
+              _sliding = v;
+            });
+          },
         ),
       ),
-      const BookingSliderWidget(),
+      _sliding == 0
+          ? const BookingSliderWidget(roomType: 'all')
+          : const SizedBox.shrink(),
+      _sliding == 1
+          ? const BookingSliderWidget(roomType: 'stay')
+          : const SizedBox.shrink(),
+      _sliding == 2
+          ? const BookingSliderWidget(roomType: 'office')
+          : const SizedBox.shrink(),
       const PickedForYou(),
       const NearToYou(),
     ]);

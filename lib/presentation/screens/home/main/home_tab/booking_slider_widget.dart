@@ -1,6 +1,12 @@
 import 'package:carousel_slider/carousel_slider.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:favorite_button/favorite_button.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
+import 'package:rentee/data/models/room/room_model.dart';
+import 'package:rentee/presentation/screens/home/main/home_tab/room_details/room_details_screen.dart';
+import 'package:rentee/presentation/screens/home/room_provider.dart';
+import 'package:rentee/presentation/screens/widgets/slider_item_widget.dart';
 import 'package:uikit/uikit.dart';
 
 final List<String> imgList = [
@@ -13,137 +19,87 @@ final List<String> imgList = [
 ];
 
 class BookingSliderWidget extends StatefulWidget {
-  const BookingSliderWidget({super.key});
+  final String roomType;
+  const BookingSliderWidget({super.key, required this.roomType});
 
   @override
   State<BookingSliderWidget> createState() => _BookingSliderWidgetState();
 }
 
 class _BookingSliderWidgetState extends State<BookingSliderWidget> {
-  Container _buildContent() {
-    return Container(
-      padding: padding0,
-      margin: paddingH32,
-      child: CarouselSlider.builder(
-        itemCount: imgList.length,
-        options: CarouselOptions(
-          height: 345,
-          viewportFraction: 0.7,
-          enlargeCenterPage: true,
-          // padEnds: true,
-        ),
-        itemBuilder: (context, i, id) {
-          //for onTap to redirect to another screen
-          return Stack(fit: StackFit.expand, children: [
-            Container(
-              // width: MediaQuery.of(context).size.width,
-              margin: padding0,
-              //ClipRRect for image border radius
-              child: ClipRRect(
-                clipBehavior: Clip.antiAliasWithSaveLayer,
-                borderRadius: circularRadius15,
-                child: Image.network(
-                  imgList[i],
-                  fit: BoxFit.cover,
-                ),
-              ),
-            ),
-            Positioned(
-              top: 0,
-              left: 0,
-              right: 0,
-              bottom: 0,
-              child: Container(
-                padding: paddingH20V25,
-                decoration: BoxDecoration(
-                  borderRadius: circularRadius12,
-                  color: Colors.black.withOpacity(0.2),
-                ),
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.stretch,
-                  mainAxisAlignment: MainAxisAlignment.end,
-                  children: [
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: [
-                        Text(
-                          "Slide $i",
-                          style: ptSerifH3.copyWith(
-                              color: RenteeColors.additional5),
-                        ),
-                        // RenteeAssets.icons.heart.svg(),
-                        FavoriteButton(
-                          isFavorite: false,
-                          iconDisabledColor: Colors.transparent,
-                          iconSize: 32.0,
-                          iconColor: RenteeColors.secondary,
-                          valueChanged: (_isFavorite) {},
-                        ),
-                      ],
-                    ),
-                    13.heightBox,
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: [
-                        Container(
-                          decoration: BoxDecoration(
-                              border: Border.all(color: RenteeColors.white),
-                              borderRadius: circularRadius10),
-                          padding: paddingH14V6,
-                          child: Text(
-                            "\$12.50/1 hour",
-                            style: notoP3.copyWith(
-                                color: RenteeColors.additional5),
-                          ),
-                        ),
-                        // RenteeAssets.icons.heart.svg(),
-                        Text(
-                          "District 1",
-                          style:
-                              notoH5.copyWith(color: RenteeColors.additional7),
-                        ),
-                      ],
-                    ),
-                  ],
-                ),
-              ),
-            ),
-          ]);
-        },
-      ),
-    );
-  }
-
-  final List<Widget> imageSliders = imgList
-      .map((item) => Container(
-            margin: padding0,
-            child: ClipRRect(
-              borderRadius: const BorderRadius.all(Radius.circular(15.0)),
-              child: Stack(
-                fit: StackFit.expand,
-                children: <Widget>[
-                  Image.network(item, fit: BoxFit.cover, width: 1000.0),
-                  Positioned(
-                    bottom: 0.0,
-                    left: 0.0,
-                    right: 0.0,
-                    child: Text(
-                      'No. ${imgList.indexOf(item)} image',
-                      style: const TextStyle(
-                        color: Colors.red,
-                        fontSize: 30.0,
-                        fontWeight: FontWeight.bold,
-                      ),
-                    ),
-                  ),
-                ],
-              ),
-            ),
-          ))
-      .toList();
-
   @override
   Widget build(BuildContext context) {
-    return _buildContent();
+    return StreamBuilder<QuerySnapshot>(
+        stream: context
+            .read<RoomProvider>()
+            .allRoomsWithSomeTypeList(widget.roomType),
+        builder: (context, snapshot) {
+          if (snapshot.connectionState == ConnectionState.waiting) {
+            return const Center(child: CircularProgressIndicator());
+          }
+          if (!snapshot.hasData) {
+            return const Center(child: Text('No data'));
+          }
+
+          List<RoomModel> roomsList = snapshot.data!.docs.map((doc) {
+            return RoomModel.fromDocument(doc);
+          }).toList();
+
+          return Container(
+            padding: padding0,
+            margin: paddingH32,
+            child: CarouselSlider.builder(
+                itemCount: roomsList.length,
+                options: CarouselOptions(
+                  height: 345,
+                  viewportFraction: 0.7,
+                  enlargeCenterPage: true,
+                  // padEnds: true,
+                ),
+                itemBuilder: (context, index, id) {
+                  RoomModel room = roomsList[index];
+                  //for onTap to redirect to another screen
+
+                  return FutureBuilder<String?>(
+                      future: context.read<RoomProvider>().getRoomAddress(
+                            room.address.latitude,
+                            room.address.longitude,
+                          ),
+                      builder: (context, addressSnapshot) {
+                        if (addressSnapshot.connectionState ==
+                            ConnectionState.waiting) {
+                          return const Center(
+                              child: CircularProgressIndicator());
+                        }
+
+                        if (addressSnapshot.hasError) {
+                          return Center(
+                              child: Text('Error: ${addressSnapshot.error}'));
+                        }
+
+                        if (!addressSnapshot.hasData ||
+                            addressSnapshot.data == null) {
+                          return const Center(child: Text('No address'));
+                        }
+                        return SliderItemWidget(
+                            itemTitle: room.title,
+                            itemPrice: double.parse(room.price.toString()),
+                            itemBathCount: room.bathCount,
+                            itemBedCount: room.bedCount,
+                            itemLocation: addressSnapshot.data!,
+                            itemRating: room.rating,
+                            imgSrc:
+                                room.imgUrl.isNotEmpty ? room.imgUrl[0] : '',
+                            onItemClick: () {
+                              onItemClick(context, room.id);
+                            });
+                      });
+                }),
+          );
+        });
+  }
+
+  void onItemClick(BuildContext context, String roomId) {
+    context.read<RoomProvider>().onItemClick(context, roomId);
   }
 }
