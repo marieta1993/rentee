@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:rentee/presentation/screens/auth/sign_in/sign_in_screen.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:uikit/uikit.dart';
-import 'package:rentee/data/models/onboarding_data/onboarding_data_model.dart';
+import 'package:rentee/domain/models/onboarding_data/onboarding_data_model.dart';
 
 class OnboardingScreen extends StatefulWidget {
   const OnboardingScreen({super.key});

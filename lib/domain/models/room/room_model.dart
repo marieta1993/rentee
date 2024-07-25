@@ -44,6 +44,34 @@ class RoomModel {
       title: data['title'],
     );
   }
+
+  // factory RoomModel.fromJson(Map<String, dynamic> json) {
+  //   return RoomModel(
+  //     address: Location.fromGeoPoint(json['address']),
+  //     bathCount: json['bathCount'],
+  //     bedCount: json['bedCount'],
+  //     description: json['description'],
+  //     imgUrl: List<String>.from(json['imgUrl']),
+  //     price: json['price'],
+  //     rating: json['rating'],
+  //     roomType: json['roomType'],
+  //     title: json['title'],
+  //   );
+  // }
+  //
+  // Map<String, dynamic> toJson() {
+  //   return {
+  //     "address": address,
+  //     "bathCount": bathCount,
+  //     "bedCount": bedCount,
+  //     "description": description,
+  //     "imgUrl": imgUrl,
+  //     "price": price,
+  //     "rating": rating,
+  //     "roomType": roomType,
+  //     "title": title,
+  //   };
+  // }
 }
 
 // @JsonSerializable()
@@ -61,13 +89,4 @@ class Location {
       longitude: geoPoint.longitude,
     );
   }
-  // factory Location.fromMap(Map<String, dynamic> map) {
-  //   return Location(
-  //     latitude: map['latitude'],
-  //     longitude: map['longitude'],
-  //   );
-  // }
-  // factory Location.fromJson(Map<String, dynamic> json) =>
-  //     _$LocationFromJson(json);
-  // Map<String, dynamic> toJson() => _$LocationToJson(this);
 }

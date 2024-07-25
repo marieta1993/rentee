@@ -6,6 +6,7 @@ import 'package:provider/provider.dart';
 import 'package:rentee/config/shared/preferences.dart';
 import 'package:rentee/firebase_options.dart';
 import 'package:rentee/presentation/screens/auth/auth_provider.dart';
+import 'package:rentee/presentation/screens/home/main/booking_provider.dart';
 import 'package:rentee/presentation/screens/home/room_provider.dart';
 import 'package:rentee/rentee_main.dart';
 import 'package:uikit/uikit.dart';
@@ -32,6 +33,7 @@ class MyApp extends StatelessWidget {
         providers: [
           ChangeNotifierProvider(create: (_) => AuthCustomProvider()),
           ChangeNotifierProvider(create: (_) => RoomProvider()),
+          ChangeNotifierProvider(create: (_) => BookingProvider()),
         ],
         child: MaterialApp(
             navigatorKey: navigationStateKey,

@@ -1,3 +1,4 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:uikit/uikit.dart';
@@ -92,11 +93,16 @@ class CardRoomItemWidget extends StatelessWidget {
                                     color: RenteeColors.additional1),
                               ),
                             ),
-                            Text(
-                              itemLocation ?? '',
-                              style: notoH5.copyWith(
-                                color: RenteeColors.additional1,
-                                fontWeight: FontWeight.w700,
+                            Flexible(
+                              child: Text(
+                                itemLocation ?? '',
+                                maxLines: 1,
+                                textAlign: TextAlign.left,
+                                overflow: TextOverflow.ellipsis,
+                                style: notoH5.copyWith(
+                                  color: RenteeColors.additional1,
+                                  fontWeight: FontWeight.w700,
+                                ),
                               ),
                             ),
                           ],

@@ -5,10 +5,10 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:geolocator/geolocator.dart';
 import 'package:rentee/presentation/screens/auth/auth_provider.dart';
 import 'package:rentee/presentation/screens/auth/sign_in/sign_in_screen.dart';
-import 'package:rentee/presentation/screens/home/main/home_tab/home_screen_tab_main.dart';
+import 'package:rentee/presentation/screens/home/main/home_tab/home/home_screen_tab_main.dart';
 import 'package:uikit/uikit.dart';
 
-import '../location/location_handler.dart';
+import '../../location/location_handler.dart';
 
 class SearchToolBar extends StatelessWidget implements PreferredSizeWidget {
   const SearchToolBar({super.key});

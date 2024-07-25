@@ -35,7 +35,7 @@ class SignInScreen extends StatelessWidget with Validator {
                   // final prefs = await SharedPreferences.getInstance();
                   // prefs.setBool('firstLaunch', true);
                   if (provider.signInAction()) {
-                    AuthService.sentOtp(
+                    await AuthService.sentOtp(
                       phone: int.parse(provider.phoneNumberController.text),
                       errorStep: () {
                         ScaffoldMessenger.of(context)

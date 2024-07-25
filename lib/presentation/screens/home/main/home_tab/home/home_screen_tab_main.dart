@@ -1,8 +1,8 @@
 import 'package:custom_sliding_segmented_control/custom_sliding_segmented_control.dart';
 import 'package:flutter/cupertino.dart';
-import 'package:rentee/presentation/screens/home/main/home_tab/booking_slider_widget.dart';
-import 'package:rentee/presentation/screens/home/main/home_tab/near_to_you_widget.dart';
-import 'package:rentee/presentation/screens/home/main/home_tab/picked_for_you_widget.dart';
+import 'package:rentee/presentation/screens/home/main/home_tab/home/home_screen_slider_widget.dart';
+import 'package:rentee/presentation/screens/home/main/home_tab/home/near_to_you_widget.dart';
+import 'package:rentee/presentation/screens/home/main/home_tab/home/picked_for_you_widget.dart';
 import 'package:uikit/uikit.dart';
 
 class HomeScreenTabMain extends StatefulWidget {

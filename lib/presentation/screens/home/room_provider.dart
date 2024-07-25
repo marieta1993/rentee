@@ -1,7 +1,7 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
-import 'package:rentee/data/models/room/room_model.dart';
+import 'package:rentee/data/remote/firebase/firestore_cloud_repository.dart';
 import 'package:rentee/presentation/screens/home/main/home_tab/room_details/room_details_screen.dart';
 import 'package:rentee/presentation/screens/home/main/location/location_handler.dart';
 
@@ -14,6 +14,14 @@ class RoomProvider extends ChangeNotifier {
         _firestore.collection('rooms').snapshots();
     return snapshotList;
   }
+
+  // getRooms() {
+  //   FirestoreCloudRepo.instance.getRooms();
+  // }
+  //
+  // getAllRoomsWithSomeType(String roomType) {
+  //   FirestoreCloudRepo.instance.getAllRoomsWithSomeType(roomType);
+  // }
 
   Stream<QuerySnapshot> allRoomsWithSomeTypeList(String roomType) {
     Stream<QuerySnapshot> snapshotList = roomType != 'all'
@@ -33,6 +41,16 @@ class RoomProvider extends ChangeNotifier {
     try {
       String? address =
           await LocationHandler.getAddressOnlyFromLatLng(lat, long);
+      return address ?? '';
+    } catch (e) {
+      return 'Error retrieving address';
+    }
+  }
+
+  Future<String?> getRoomFullAddress(double lat, double long) async {
+    try {
+      String? address =
+          await LocationHandler.getAddressFullFromLatLng(lat, long);
       return address ?? '';
     } catch (e) {
       return 'Error retrieving address';

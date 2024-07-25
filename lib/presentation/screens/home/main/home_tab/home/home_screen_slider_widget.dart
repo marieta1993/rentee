@@ -1,10 +1,8 @@
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:favorite_button/favorite_button.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:rentee/data/models/room/room_model.dart';
-import 'package:rentee/presentation/screens/home/main/home_tab/room_details/room_details_screen.dart';
+import 'package:rentee/domain/models/room/room_model.dart';
 import 'package:rentee/presentation/screens/home/room_provider.dart';
 import 'package:rentee/presentation/screens/widgets/slider_item_widget.dart';
 import 'package:uikit/uikit.dart';
@@ -54,6 +52,7 @@ class _BookingSliderWidgetState extends State<BookingSliderWidget> {
                   height: 345,
                   viewportFraction: 0.7,
                   enlargeCenterPage: true,
+                  pageSnapping: false,
                   // padEnds: true,
                 ),
                 itemBuilder: (context, index, id) {

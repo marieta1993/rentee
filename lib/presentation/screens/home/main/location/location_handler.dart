@@ -50,12 +50,23 @@ abstract class LocationHandler {
     }
   }
 
+  static Future<String?> getAddressFullFromLatLng(
+      double lat, double long) async {
+    try {
+      List<Placemark> placeMarks = await placemarkFromCoordinates(lat, long);
+      Placemark place = placeMarks[0];
+      return "${place.thoroughfare}, ${place.locality},${place.administrativeArea}, ${place.country}";
+    } catch (e) {
+      return null;
+    }
+  }
+
   static Future<String?> getAddressOnlyFromLatLng(
       double lat, double long) async {
     try {
       List<Placemark> placeMarks = await placemarkFromCoordinates(lat, long);
       Placemark place = placeMarks[0];
-      return " ${place.country}";
+      return " ${place.locality}";
     } catch (e) {
       return null;
     }
