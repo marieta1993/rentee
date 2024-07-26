@@ -65,11 +65,11 @@ class _BookingSliderWidgetState extends State<BookingSliderWidget> {
                             room.address.longitude,
                           ),
                       builder: (context, addressSnapshot) {
-                        if (addressSnapshot.connectionState ==
-                            ConnectionState.waiting) {
-                          return const Center(
-                              child: CircularProgressIndicator());
-                        }
+                        // if (addressSnapshot.connectionState ==
+                        //     ConnectionState.waiting) {
+                        //   return const Center(
+                        //       child: CircularProgressIndicator());
+                        // }
 
                         if (addressSnapshot.hasError) {
                           return Center(

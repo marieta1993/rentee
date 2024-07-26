@@ -82,20 +82,20 @@ class BookingCompleteScreen extends StatelessWidget {
                           },
                         ),
                       ),
-                      10.horizontalSpaceRadius,
-                      Expanded(
-                          child: RenteeElevatedButton.tertiary(
-                        text: "See detail",
-                        onPress: () {
-                          provider.reset();
-                          Navigator.pushAndRemoveUntil(
-                              context,
-                              MaterialPageRoute(
-                                  builder: (_) =>
-                                      const BookingItemDetailsScreen()),
-                              (route) => false);
-                        },
-                      )),
+                      // 10.horizontalSpaceRadius,
+                      // Expanded(
+                      //     child: RenteeElevatedButton.tertiary(
+                      //   text: "See detail",
+                      //   onPress: () {
+                      //     provider.reset();
+                      //     Navigator.pushAndRemoveUntil(
+                      //         context,
+                      //         MaterialPageRoute(
+                      //             builder: (_) =>
+                      //                 const BookingItemDetailsScreen()),
+                      //         (route) => false);
+                      //   },
+                      // )),
                     ],
                   )
                 ],

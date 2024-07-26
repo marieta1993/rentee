@@ -19,6 +19,7 @@ Future<void> main() async {
   );
   await Preferences.sharedPreferences();
   await ScreenUtil.ensureScreenSize();
+
   runApp(const MyApp());
 }
 

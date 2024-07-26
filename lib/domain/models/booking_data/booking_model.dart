@@ -11,6 +11,7 @@ class BookingModel {
   final String cardCVV;
   final String roomId;
   final String userId;
+  final String? id;
   final int totalPrice;
 
   BookingModel({
@@ -24,6 +25,7 @@ class BookingModel {
     required this.cardExpiry,
     required this.cardCVV,
     required this.roomId,
+    this.id,
     required this.userId,
   });
 
@@ -38,6 +40,7 @@ class BookingModel {
       'cardExpiry': cardExpiry,
       'cardCVV': cardCVV,
       'roomId': roomId,
+      'id': id,
       'userId': userId,
       'totalPrice': totalPrice,
     };
@@ -56,6 +59,7 @@ class BookingModel {
       cardCVV: data['cardCVV'],
       roomId: data['roomId'],
       userId: data['userId'],
+      id: doc.id,
       totalPrice: data['totalPrice'],
     );
   }

@@ -64,7 +64,7 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
             mainAxisAlignment: MainAxisAlignment.end,
             children: [
               Container(
-                decoration: roundedContainerAll25,
+                decoration: roundedContainerTop30,
                 padding: paddingAll48,
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.stretch,
@@ -106,17 +106,17 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
                                 },
                               ))
                             : const SizedBox(),
+                        // _isLastPage
+                        //     ? Expanded(
+                        //         child: RenteeElevatedButton(
+                        //         text: "Sign up",
+                        //         onPress: onSignUpPress,
+                        //       ))
+                        //     : const SizedBox(),
+                        // 16.widthBox,
                         _isLastPage
                             ? Expanded(
                                 child: RenteeElevatedButton(
-                                text: "Sign up",
-                                onPress: onSignUpPress,
-                              ))
-                            : const SizedBox(),
-                        16.widthBox,
-                        _isLastPage
-                            ? Expanded(
-                                child: RenteeElevatedButton.gray(
                                 text: "Sign in",
                                 onPress: onSignInPress,
                               ))

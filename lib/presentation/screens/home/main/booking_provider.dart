@@ -104,13 +104,13 @@ class BookingProvider extends ChangeNotifier {
     return price * countOfDay;
   }
 
-  Stream<QuerySnapshot> allBookingsList(bool isOngoing) {
+  Stream<QuerySnapshot> allBookingsList(String type) {
     final Timestamp now = Timestamp.now();
     Stream<QuerySnapshot> snapshotList;
 
-    if (isOngoing) {
+    if (type == 'past') {
       print("isOngoing");
-      snapshotList = _firestore
+      return snapshotList = _firestore
           .collection('bookings')
           .where('userId', isEqualTo: _auth.currentUser!.uid)
           .where('bookingFromTime', isLessThan: now)
@@ -118,13 +118,13 @@ class BookingProvider extends ChangeNotifier {
     } else {
       print("isPast");
 
-      snapshotList = _firestore
+      return snapshotList = _firestore
           .collection('bookings')
           .where('userId', isEqualTo: _auth.currentUser!.uid)
-          .where('bookingFromTime', isGreaterThanOrEqualTo: now)
+          .where('bookingFromDate', isGreaterThanOrEqualTo: now)
           .snapshots();
     }
-    return snapshotList;
+    // return snapshotList;
   }
 
   Future<void> selectBookingDate(BuildContext context) async {

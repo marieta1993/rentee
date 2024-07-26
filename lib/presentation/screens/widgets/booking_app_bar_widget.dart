@@ -8,11 +8,13 @@ class BookingAppBarWidget extends StatelessWidget
     this.onBackClick,
     this.title,
     this.hasShape = true,
+    this.showLeading = true,
   });
 
   final VoidCallback? onBackClick;
   final String? title;
   final bool? hasShape;
+  final bool showLeading;
 
   @override
   Widget build(BuildContext context) {
@@ -31,15 +33,19 @@ class BookingAppBarWidget extends StatelessWidget
         child: Row(
           mainAxisSize: MainAxisSize.max,
           crossAxisAlignment: CrossAxisAlignment.stretch,
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          mainAxisAlignment: showLeading
+              ? MainAxisAlignment.spaceBetween
+              : MainAxisAlignment.center,
           children: [
-            InkWell(
-              onTap: onBackClick,
-              child: SizedBox(
-                width: 27,
-                child: RenteeAssets.icons.back.svg(),
-              ),
-            ),
+            showLeading
+                ? InkWell(
+                    onTap: onBackClick,
+                    child: SizedBox(
+                      width: 27,
+                      child: RenteeAssets.icons.back.svg(),
+                    ),
+                  )
+                : const SizedBox.shrink(),
             Text(
               title ?? '',
               style: notoH2.copyWith(color: RenteeColors.additional5),
