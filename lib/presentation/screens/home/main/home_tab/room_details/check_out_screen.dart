@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:rentee/presentation/screens/home/main/home_tab/room_details/booking_complete_screen.dart';
+import 'package:rentee/presentation/screens/home/main/home_tab/room_booking/booking_complete_screen.dart';
 import 'package:rentee/presentation/screens/widgets/booking_app_bar_widget.dart';
 import 'package:rentee/presentation/screens/widgets/card_room_item_widget.dart';
 import 'package:uikit/uikit.dart';

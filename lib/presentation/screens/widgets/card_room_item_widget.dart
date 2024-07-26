@@ -1,3 +1,4 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:uikit/uikit.dart';
@@ -19,7 +20,7 @@ class CardRoomItemWidget extends StatelessWidget {
   final VoidCallback? onItemClick;
   final String? imgSrc;
   final String? itemTitle;
-  final double itemPrice;
+  final double? itemPrice;
   final String? itemLocation;
   final int? itemRating;
   final int? itemBathCount;
@@ -87,16 +88,21 @@ class CardRoomItemWidget extends StatelessWidget {
                                   borderRadius: circularRadius10),
                               padding: paddingH14V6,
                               child: Text(
-                                "\$$itemPrice /1 hour",
+                                "\$$itemPrice /1 day",
                                 style: notoP3.copyWith(
                                     color: RenteeColors.additional1),
                               ),
                             ),
-                            Text(
-                              itemLocation ?? '',
-                              style: notoH5.copyWith(
-                                color: RenteeColors.additional1,
-                                fontWeight: FontWeight.w700,
+                            Flexible(
+                              child: Text(
+                                itemLocation ?? '',
+                                maxLines: 1,
+                                textAlign: TextAlign.left,
+                                overflow: TextOverflow.ellipsis,
+                                style: notoH5.copyWith(
+                                  color: RenteeColors.additional1,
+                                  fontWeight: FontWeight.w700,
+                                ),
                               ),
                             ),
                           ],

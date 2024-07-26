@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:localization/localization.dart';
 import 'package:rentee/presentation/screens/example/example.dart';
 
 class RenteeMain extends StatefulWidget {

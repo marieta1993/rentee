@@ -1,8 +1,8 @@
 import 'package:custom_sliding_segmented_control/custom_sliding_segmented_control.dart';
 import 'package:flutter/cupertino.dart';
-import 'package:rentee/presentation/screens/home/main/home_tab/booking_slider_widget.dart';
-import 'package:rentee/presentation/screens/home/main/home_tab/near_to_you_widget.dart';
-import 'package:rentee/presentation/screens/home/main/home_tab/picked_for_you_widget.dart';
+import 'package:rentee/presentation/screens/home/main/home_tab/home/home_screen_slider_widget.dart';
+import 'package:rentee/presentation/screens/home/main/home_tab/home/near_to_you_widget.dart';
+import 'package:rentee/presentation/screens/home/main/home_tab/home/picked_for_you_widget.dart';
 import 'package:uikit/uikit.dart';
 
 class HomeScreenTabMain extends StatefulWidget {
@@ -13,7 +13,7 @@ class HomeScreenTabMain extends StatefulWidget {
 }
 
 class _HomeScreenTabMainState extends State<HomeScreenTabMain> {
-  final int _sliding = 0;
+  int _sliding = 0;
   final Color thumbTextColor = RenteeColors.additional3;
   final _children = const {
     0: Text("All", style: TextStyle(color: RenteeColors.additional3)),
@@ -42,10 +42,22 @@ class _HomeScreenTabMainState extends State<HomeScreenTabMain> {
             borderRadius: circularRadius15,
           ),
 
-          onValueChanged: (v) {},
+          onValueChanged: (v) {
+            setState(() {
+              _sliding = v;
+            });
+          },
         ),
       ),
-      const BookingSliderWidget(),
+      _sliding == 0
+          ? const BookingSliderWidget(roomType: 'all')
+          : const SizedBox.shrink(),
+      _sliding == 1
+          ? const BookingSliderWidget(roomType: 'stay')
+          : const SizedBox.shrink(),
+      _sliding == 2
+          ? const BookingSliderWidget(roomType: 'office')
+          : const SizedBox.shrink(),
       const PickedForYou(),
       const NearToYou(),
     ]);

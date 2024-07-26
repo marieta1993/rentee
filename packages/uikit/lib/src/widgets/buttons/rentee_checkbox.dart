@@ -22,7 +22,7 @@ class _CheckBoxState extends State<CheckBox> {
       value: widget.checkValue,
       onChanged: widget.checkCallBack,
       activeColor: RenteeColors.primary,
-      shape: RoundedRectangleBorder(borderRadius: borderRounded5),
+      shape: RoundedRectangleBorder(borderRadius: borderRounded4),
     );
   }
 }

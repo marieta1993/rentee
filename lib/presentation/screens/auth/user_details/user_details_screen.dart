@@ -12,14 +12,9 @@ import 'package:rentee/utils/extensions/context_localization.dart';
 import 'package:rentee/utils/validators/validators.dart';
 import 'package:uikit/uikit.dart';
 
-class UserDetailsScreen extends StatefulWidget with Validator {
+class UserDetailsScreen extends StatelessWidget with Validator {
   const UserDetailsScreen({super.key});
 
-  @override
-  State<UserDetailsScreen> createState() => _UserDetailsScreenState();
-}
-
-class _UserDetailsScreenState extends State<UserDetailsScreen> with Validator {
   @override
   Widget build(BuildContext context) {
     AuthLayoutData signUpData = AuthLayoutData(

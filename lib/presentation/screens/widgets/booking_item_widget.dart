@@ -68,7 +68,7 @@ class BookingItemWidget extends StatelessWidget {
                     Padding(
                       padding: paddingV4,
                       child: Text(
-                        '$bookingTime on $bookingDate',
+                        '$bookingDate',
                         style: notoP4.copyWith(
                           color: RenteeColors.additional1,
                         ),
