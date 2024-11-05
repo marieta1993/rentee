@@ -1,10 +1,6 @@
-import 'package:carousel_slider/carousel_slider.dart';
-import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:carousel_slider/carousel_slider.dart' as carousel_slider;
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:provider/provider.dart';
-import 'package:rentee/domain/models/booking_data/booking_model.dart';
-import 'package:rentee/presentation/screens/home/main/booking_provider.dart';
 import 'package:rentee/presentation/screens/widgets/booking_app_bar_widget.dart';
 import 'package:uikit/uikit.dart';
 
@@ -182,9 +178,9 @@ class _BookingItemDetailsScreenState extends State<BookingItemDetailsScreen> {
           Container(
             padding: EdgeInsets.zero,
             margin: const EdgeInsets.symmetric(horizontal: 15, vertical: 0),
-            child: CarouselSlider.builder(
+            child: carousel_slider.CarouselSlider.builder(
               itemCount: imgList.length,
-              options: CarouselOptions(
+              options: carousel_slider.CarouselOptions(
                   height: 226.sp,
                   viewportFraction: 1,
                   enlargeCenterPage: true,

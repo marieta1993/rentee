@@ -8,6 +8,7 @@ import 'package:rentee/presentation/screens/home/main/home_tab/room_booking/paym
 import 'package:rentee/presentation/screens/home/room_provider.dart';
 import 'package:rentee/presentation/screens/widgets/booking_app_bar_widget.dart';
 import 'package:rentee/presentation/screens/widgets/card_room_item_widget.dart';
+import 'package:rentee/utils/validators/validators.dart';
 import 'package:uikit/uikit.dart';
 
 class BookingRoomScreen extends StatefulWidget {
@@ -18,7 +19,7 @@ class BookingRoomScreen extends StatefulWidget {
   State<BookingRoomScreen> createState() => _BookingRoomScreenState();
 }
 
-class _BookingRoomScreenState extends State<BookingRoomScreen> {
+class _BookingRoomScreenState extends State<BookingRoomScreen> with Validator {
   @override
   Widget build(BuildContext context) {
     return StreamBuilder<DocumentSnapshot>(
@@ -82,6 +83,7 @@ class _BookingRoomScreenState extends State<BookingRoomScreen> {
                                               placeholder: 'Select Date',
                                               keyboardType:
                                                   TextInputType.datetime,
+                                              validator: dateValidation,
                                             ),
                                           ),
                                         ),
@@ -92,6 +94,7 @@ class _BookingRoomScreenState extends State<BookingRoomScreen> {
                                           label: 'Number of guest',
                                           keyboardType: TextInputType.number,
                                           placeholder: '2',
+                                          validator: minNumberValidation,
                                         ),
                                         15.heightBox,
                                         RenteeInputField(
@@ -100,20 +103,24 @@ class _BookingRoomScreenState extends State<BookingRoomScreen> {
                                           label: 'Count of day',
                                           keyboardType: TextInputType.number,
                                           placeholder: '1',
+                                          validator: minNumberValidation,
                                         ),
                                       ],
                                     ),
                                     RenteeElevatedButton(
-                                      text: 'Booking',
-                                      onPress: () {
-                                        Navigator.push(
-                                            context,
-                                            MaterialPageRoute(
-                                              builder: (_) => PaymentScreen(
-                                                  roomId: room.id),
-                                            ));
-                                      },
-                                    ),
+                                        text: 'Booking',
+                                        onPress: () {
+                                          if (provider
+                                              .formBookingKey.currentState!
+                                              .validate()) {
+                                            Navigator.push(
+                                                context,
+                                                MaterialPageRoute(
+                                                  builder: (_) => PaymentScreen(
+                                                      roomId: room.id),
+                                                ));
+                                          }
+                                        }),
                                   ],
                                 ));
                           }),

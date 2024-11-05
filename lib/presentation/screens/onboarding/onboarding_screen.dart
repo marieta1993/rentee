@@ -113,7 +113,7 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
                         //         onPress: onSignUpPress,
                         //       ))
                         //     : const SizedBox(),
-                        // 16.widthBox,
+                        16.widthBox,
                         _isLastPage
                             ? Expanded(
                                 child: RenteeElevatedButton(

@@ -41,7 +41,6 @@ class AuthCustomProvider extends ChangeNotifier {
   signInAction() {
     // Validate returns true if the form is valid, or false otherwise.
     return _formSignInKey.currentState!.validate();
-    debugPrint("Sign in");
   }
 
   Future<bool> checkPhoneNumberExists() async {

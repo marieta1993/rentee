@@ -31,4 +31,25 @@ mixin Validator {
     }
     return null;
   }
+
+  String? minNumberValidation(value) {
+    if (value == null || value.isEmpty) {
+      return 'Please enter number';
+    }
+    if (int.parse(value) < 1) {
+      return 'Minimum guest count must be 1';
+    }
+    return null;
+  }
+
+  String? dateValidation(String? value) {
+    if (value == null || value.isEmpty) {
+      return 'Please enter date';
+    }
+    final date = DateTime.parse(value);
+    if (date.isBefore(DateTime.now())) {
+      return 'Please choose future date';
+    }
+    return null;
+  }
 }

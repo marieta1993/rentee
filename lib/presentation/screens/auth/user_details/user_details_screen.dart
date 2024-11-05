@@ -1,12 +1,9 @@
-import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:rentee/presentation/screens/auth/auth_layout.dart';
 import 'package:rentee/presentation/screens/auth/auth_provider.dart';
 import 'package:rentee/presentation/screens/auth/sign_in/sign_in_screen.dart';
-import 'package:rentee/presentation/screens/auth/verification/verification_screen.dart';
 import 'package:rentee/presentation/screens/home/tab_main_screen.dart';
 import 'package:rentee/utils/extensions/context_localization.dart';
 import 'package:rentee/utils/validators/validators.dart';

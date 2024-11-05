@@ -2,8 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:provider/provider.dart';
 import 'package:rentee/presentation/screens/home/main/booking_provider.dart';
-import 'package:rentee/presentation/screens/home/main/booking_tab/booking_item_details.dart';
-import 'package:rentee/presentation/screens/home/main/home_tab/home/home_screen.dart';
 import 'package:rentee/presentation/screens/home/tab_main_screen.dart';
 import 'package:uikit/uikit.dart';
 

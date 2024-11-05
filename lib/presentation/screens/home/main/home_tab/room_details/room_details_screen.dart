@@ -22,8 +22,6 @@ class RoomDetailsScreen extends StatefulWidget {
 }
 
 class _RoomDetailsScreenState extends State<RoomDetailsScreen> {
-  bool _isFavorite = false;
-
   Stream<DocumentSnapshot> getRoomWithId(String id) {
     return context.read<RoomProvider>().getRoomWithId(id);
   }

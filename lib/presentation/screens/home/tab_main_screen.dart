@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:rentee/presentation/screens/home/main/booking_tab/booking_tab_main_screen.dart';
-import 'package:rentee/presentation/screens/home/main/favorite_tab/favorite_screen.dart';
 import 'package:rentee/presentation/screens/home/main/home_tab/home/home_screen.dart';
 import 'package:uikit/uikit.dart';
 

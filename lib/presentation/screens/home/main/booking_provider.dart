@@ -108,22 +108,12 @@ class BookingProvider extends ChangeNotifier {
     final Timestamp now = Timestamp.now();
     Stream<QuerySnapshot> snapshotList;
 
-    if (type == 'past') {
-      print("isOngoing");
-      return snapshotList = _firestore
-          .collection('bookings')
-          .where('userId', isEqualTo: _auth.currentUser!.uid)
-          .where('bookingFromTime', isLessThan: now)
-          .snapshots();
-    } else {
-      print("isPast");
+    return snapshotList = _firestore
+        .collection('bookings')
+        .where('userId', isEqualTo: _auth.currentUser!.uid)
+        .where('bookingFromTime', isGreaterThanOrEqualTo: now)
+        .snapshots();
 
-      return snapshotList = _firestore
-          .collection('bookings')
-          .where('userId', isEqualTo: _auth.currentUser!.uid)
-          .where('bookingFromDate', isGreaterThanOrEqualTo: now)
-          .snapshots();
-    }
     // return snapshotList;
   }
 
