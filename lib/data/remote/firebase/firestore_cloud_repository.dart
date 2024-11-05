@@ -1,5 +1,4 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:rentee/domain/models/room/room_model.dart';
 
 class FirestoreCloudRepo {
   FirestoreCloudRepo._();

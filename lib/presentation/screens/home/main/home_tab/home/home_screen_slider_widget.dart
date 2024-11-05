@@ -1,4 +1,4 @@
-import 'package:carousel_slider/carousel_slider.dart';
+import 'package:carousel_slider/carousel_slider.dart' as carousel_slider;
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
@@ -46,9 +46,9 @@ class _BookingSliderWidgetState extends State<BookingSliderWidget> {
           return Container(
             padding: padding0,
             margin: paddingH32,
-            child: CarouselSlider.builder(
+            child: carousel_slider.CarouselSlider.builder(
                 itemCount: roomsList.length,
-                options: CarouselOptions(
+                options: carousel_slider.CarouselOptions(
                   height: 345,
                   viewportFraction: 0.7,
                   enlargeCenterPage: true,

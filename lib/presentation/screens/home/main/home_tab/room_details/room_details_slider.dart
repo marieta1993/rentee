@@ -1,4 +1,4 @@
-import 'package:carousel_slider/carousel_slider.dart';
+import 'package:carousel_slider/carousel_slider.dart' as carousel_slider;
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:rentee/domain/models/room/room_model.dart';
@@ -23,9 +23,9 @@ class _RoomDetailsSliderState extends State<RoomDetailsSlider> {
         Container(
           padding: padding0,
           margin: paddingH15,
-          child: CarouselSlider.builder(
+          child: carousel_slider.CarouselSlider.builder(
             itemCount: widget.room.imgUrl.length,
-            options: CarouselOptions(
+            options: carousel_slider.CarouselOptions(
               height: 493.sp,
               viewportFraction: 1,
               enlargeCenterPage: true,

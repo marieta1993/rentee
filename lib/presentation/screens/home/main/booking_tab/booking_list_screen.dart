@@ -5,7 +5,6 @@ import 'package:provider/provider.dart';
 import 'package:rentee/domain/models/booking_data/booking_model.dart';
 import 'package:rentee/domain/models/room/room_model.dart';
 import 'package:rentee/presentation/screens/home/main/booking_tab/booked_item_details_screen.dart';
-import 'package:rentee/presentation/screens/home/main/booking_tab/booking_item_details.dart';
 import 'package:rentee/presentation/screens/home/room_provider.dart';
 import 'package:rentee/presentation/screens/widgets/booking_item_widget.dart';
 import 'package:rentee/utils/extensions/date.dart';
@@ -26,9 +25,6 @@ class _BookingListScreenState extends State<BookingListScreen> {
     0: Text("Ongoing", style: notoH4.copyWith(color: RenteeColors.additional3)),
     1: Text("Past", style: notoH4.copyWith(color: RenteeColors.additional3)),
   };
-
-  bool isPast = false;
-  bool isCurrent = false;
   Stream<DocumentSnapshot> getRoomWithId(String id) {
     return context.read<RoomProvider>().getRoomWithId(id);
   }
@@ -72,9 +68,9 @@ class _BookingListScreenState extends State<BookingListScreen> {
                 return StreamBuilder<DocumentSnapshot>(
                     stream: getRoomWithId(booking.roomId),
                     builder: (context, snapshot) {
-                      if (snapshot.connectionState == ConnectionState.waiting) {
-                        return const Center(child: CircularProgressIndicator());
-                      }
+                      // if (snapshot.connectionState == ConnectionState.waiting) {
+                      //   return const Center(child: CircularProgressIndicator());
+                      // }
 
                       if (!snapshot.hasData || !snapshot.data!.exists) {
                         return const Center(child: Text('No data available'));
@@ -92,7 +88,7 @@ class _BookingListScreenState extends State<BookingListScreen> {
                                       )),
                             );
                           },
-                          buttonText: isPast ? 'Review' : 'See detail',
+                          buttonText: 'See detail',
                           itemTitle: room.title,
                           imgSrc: room.imgUrl[0],
                           bookingTime: booking.bookingFromTime.timeFromDate,

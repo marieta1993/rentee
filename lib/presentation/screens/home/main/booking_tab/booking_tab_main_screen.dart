@@ -6,8 +6,6 @@ import 'package:provider/provider.dart';
 import 'package:rentee/domain/models/booking_data/booking_model.dart';
 import 'package:rentee/presentation/screens/home/main/booking_provider.dart';
 import 'package:rentee/presentation/screens/home/main/booking_tab/booking_list_screen.dart';
-import 'package:rentee/presentation/screens/home/main/home_tab/home/home_screen.dart';
-import 'package:rentee/presentation/screens/home/main/home_tab/home/home_screen_tab_main.dart';
 import 'package:rentee/presentation/screens/home/room_provider.dart';
 import 'package:rentee/presentation/screens/home/tab_main_screen.dart';
 import 'package:rentee/presentation/screens/widgets/booking_app_bar_widget.dart';
@@ -106,6 +104,7 @@ class _BookingTabMainScreenState extends State<BookingTabMainScreen> {
           List<BookingModel> bookingList = snapshot.data!.docs.map((doc) {
             return BookingModel.fromDocument(doc);
           }).toList();
+          print(bookingList.length);
 
           return bookingList.isNotEmpty
               ? BookingListScreen(bookingList: bookingList)
